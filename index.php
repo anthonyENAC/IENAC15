@@ -1,3 +1,16 @@
+<!-- CONNEXION -->
+<?php
+session_start();
+header('Content-type: text/html; charset=utf-8');
+include('includes/config.php');
+
+/********Actualisation de la session...**********/
+
+include('includes/fonctions.php');
+connexionbdd();
+actualiser_session();
+?>
+
 <!-- L'entete et le menu -->
 
 <?php include("entete.php"); ?>
@@ -17,7 +30,7 @@
                     </div>
                 </div>
             </h2>
-            <!-- <form method="post" action="/IENAC15/aman_begaud_gaulmin_thirion/python/page2.py/index"> -->
+            <form method="post" action="/IENAC15/aman_begaud_gaulmin_thirion/python/page2.py/index">
             <div id="trajet">
             <div class="row">
             <div style="padding:1px; background-color:ivory; border:2px solid #656ab0; -moz-border-radius:9px; -khtml-border-radius:9px; -webkit-border-radius:9px; border-radius:9px;">
@@ -98,7 +111,7 @@
             </div>
             </div>
             </div>
-            <!--</form>-->
+            </form>
         </section>
     </div>
 </div>

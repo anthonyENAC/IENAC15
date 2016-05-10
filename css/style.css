@@ -265,3 +265,12 @@ section {
     font-size: 20px;
     margin: 30px 10px 0;
 }
+/*-------------------------------CONNEXION-----------------------------*/
+#inscription {
+    text-align: center;
+    margin:20px 0 0;
+}
+#connexion {
+    text-align: center;
+    margin:20px 0 0;
+}
