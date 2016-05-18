@@ -1,18 +1,40 @@
-<form method="post" onclick="plus();">
-<button class="button" >Rechercher</button>
+<p>
+    <label for="pays">De</label><br />
+    <select name="ville_dep" >
+        <?php
+            try
+            {
+                // On se connecte à MySQL
 
-</form>
+                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+            }
+            catch(Exception $e)
+            {
+                // En cas d'erreur, on affiche un message et on arrête tout
+                die('Erreur : '.$e->getMessage());
+            }
 
-<script type="text/javascript">
-    var id=44;
-    function afficher(x) {
-        x = x + 1;
+            // Si tout va bien, on peut continuer
 
-    }
-    var y=afficher(id);
-    function plus(){
-        alert(id +1);
-    }
+            // On récupère tout le contenu de la table jeux_video
+            $reponse = $bdd->query('SELECT * FROM Station');
+
+            // On affiche chaque entrée une à une
+
+            while ($donnees = $reponse->fetch())
+            {
+            ?>
+<p>
+    <strong>station départ</strong> <option value="Station"><?php echo $donnees['nom_station']; ?></option> :<br />
+</p>
+<?php
+
+}
+
+$reponse->closeCursor(); // Termine le traitement de la requête
+?>
+    </select>
+</p>
 
 
-</script>
+

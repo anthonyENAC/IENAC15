@@ -85,14 +85,7 @@
                 </div>
 
 
-                <p id="global"><label>Mode de Transport</label><br />
-                    <select name="transport">
-                        <option value="Bus">Bus</option>
-                        <option value="Métro">Métro</option>
-                        <option value="Avion">Avion</option>
-                        <option value="Train">Train</option>
-                    </select>
-                </p>
+                
                 <br />
                 <button class="button" type="submit">Rechercher</button>
             </div>
