@@ -161,7 +161,6 @@ p a:hover {
 }
 /*-------------------------------RECHERCHE----------------------------*/
 section {
-    background-image:url(/IENAC15/aman_begaud_gaulmin_thirion/images/fond_map.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     border-top:2px solid #a0a0a0;
@@ -173,6 +172,9 @@ section {
     text-align:center;
     max-width:100%;
 }
+
+#itinéraire {background-image:url(/IENAC15/aman_begaud_gaulmin_thirion/images/fond_map.jpg);}
+
 #itinéraire h2 {
     text-transform:uppercase;
     font-weight:600;
@@ -199,6 +201,8 @@ section {
     color: #424380;
     text-transform: uppercase;
 }
+/*-------------------------------tableau-----------------------------*/
+#tableau2{margin-top:50px;}
 /*------------------------------ FOOTER ------------------------------*/
 #footer {
     background: url(../images/bg-footer.png) repeat left top;
@@ -264,13 +268,4 @@ section {
     color: black;
     font-size: 20px;
     margin: 30px 10px 0;
-}
-/*-------------------------------CONNEXION-----------------------------*/
-#inscription {
-    text-align: center;
-    margin:20px 0 0;
-}
-#connexion {
-    text-align: center;
-    margin:20px 0 0;
 }
