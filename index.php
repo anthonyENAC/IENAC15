@@ -159,6 +159,19 @@
             </form>
         </section>
     </div>
+    <div id="contacter">
+        <h2>Des questions ou des commentaires?</h2>
+        <div class="row">
+            <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 form-group" >
+                <form method="post" action="/IENAC15/aman_begaud_gaulmin_thirion/confirmation_message.php"  enctype="multipart/form-data">
+                    <input name="name" placeholder="Nom Prénom" type="text" />
+                    <input name="email" placeholder="Email" type="text" />
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <button class="button" type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </div>    
 
