@@ -21,21 +21,83 @@
             <div id="trajet">
             <div class="row">
             <div style="padding:1px; background-color:ivory; border:2px solid #656ab0; -moz-border-radius:9px; -khtml-border-radius:9px; -webkit-border-radius:9px; border-radius:9px;">
-                    <div id="global">
+                    <div id="global1">
                         <p>
                             <label for="pays">De</label><br />
                             <select name="ville_dep" >
-                                <option value="Ramonville">Ramonville</option>
-                            </select>
+                                <?php
+                                try
+                                {
+                                    // On se connecte à MySQL
+
+                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+                                }
+                                catch(Exception $e)
+                                {
+                                    // En cas d'erreur, on affiche un message et on arrête tout
+                                    die('Erreur : '.$e->getMessage());
+                                }
+
+                                // Si tout va bien, on peut continuer
+
+                                // On récupère tout le contenu de la table jeux_video
+                                $reponse = $bdd->query('SELECT * FROM Station');
+
+                                // On affiche chaque entrée une à une
+
+                                while ($donnees = $reponse->fetch())
+                                {
+                                ?>
+                        <p>
+                            <strong>station départ</strong> <option value="<?php echo $donnees['nom_station']; ?>"><?php echo $donnees['nom_station']; ?></option> :<br />
+                        </p>
+                        <?php
+
+                        }
+
+                        $reponse->closeCursor(); // Termine le traitement de la requête
+                        ?>
+                        </select>
                         </p>
                     </div>
 
                     <div id="global">
                         <p>
-                            <label for="pays">à</label><br />
-                            <select name="ville_arr">
-                                <option value="La Défense">La Défense</option>
-                            </select>
+                            <label for="pays">De</label><br />
+                            <select name="ville_arr" >
+                                <?php
+                                try
+                                {
+                                    // On se connecte à MySQL
+
+                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+                                }
+                                catch(Exception $e)
+                                {
+                                    // En cas d'erreur, on affiche un message et on arrête tout
+                                    die('Erreur : '.$e->getMessage());
+                                }
+
+                                // Si tout va bien, on peut continuer
+
+                                // On récupère tout le contenu de la table jeux_video
+                                $reponse = $bdd->query('SELECT nom_station FROM Station');
+
+                                // On affiche chaque entrée une à une
+
+                                while ($donnees = $reponse->fetch())
+                                {
+                                ?>
+                        <p>
+                            <strong>station d'arrivé</strong> <option value="<?php echo $donnees['nom_station']; ?>"><?php echo $donnees['nom_station']; ?></option> :<br />
+                        </p>
+                        <?php
+
+                        }
+
+                        $reponse->closeCursor(); // Termine le traitement de la requête
+                        ?>
+                        </select>
                         </p>
                     </div>
 
@@ -53,15 +115,18 @@
                     <div id="global">
                         <p><label>Départ</label><br />
                             <select name="heure_dep">
-                                <option value="08h">08h</option>
-                                <option value="09h">09h</option>
-                                <option value="10h">10h</option>
-                                <option value="11h">11h</option>
-                                <option value="12h">12h</option>
-                                <option value="13h">13h</option>
-                                <option value="14h">14h</option>
-                                <option value="15h">15h</option>
-                                <option value="16h">16h</option>
+                                <option value="05">05h</option>
+                                <option value="06">06h</option>
+                                <option value="07">07h</option>
+                                <option value="08">08h</option>
+                                <option value="09">09h</option>
+                                <option value="10">10h</option>
+                                <option value="11">11h</option>
+                                <option value="12">12h</option>
+                                <option value="13">13h</option>
+                                <option value="14">14h</option>
+                                <option value="15">15h</option>
+                                <option value="16">16h</option>
                             </select>
                         </p>
                     </div>
@@ -69,15 +134,15 @@
                     <div id="global">
                         <p><label>Arrivée</label><br />
                             <select name="heure_max">
-                                <option value="08h">08h</option>
-                                <option value="09h">09h</option>
-                                <option value="10h">10h</option>
-                                <option value="11h">11h</option>
-                                <option value="12h">12h</option>
-                                <option value="13h">13h</option>
-                                <option value="14h">14h</option>
-                                <option value="15h">15h</option>
-                                <option value="16h">16h</option>
+                                <option value="08">08h</option>
+                                <option value="09">09h</option>
+                                <option value="10">10h</option>
+                                <option value="11">11h</option>
+                                <option value="12">12h</option>
+                                <option value="13">13h</option>
+                                <option value="14">14h</option>
+                                <option value="15">15h</option>
+                                <option value="16">16h</option>
                             </select>
                         </p>
                     </div>
