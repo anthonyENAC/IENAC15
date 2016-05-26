@@ -1,12 +1,25 @@
 <!-- L'entete et le menu -->
 
-<?php include("entete.php"); ?>
+<?php
+session_start();
+include("entete.php");
+$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
+
+if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
+{
+    $getid = intval($_GET['id_user']);
+    $requser = $bdd->prepare('SELECT * FROM Utilisateur WHERE id_user = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+}
+?>
 
 <!-- Le corps de la page d'accueil -->
 <div id ="contents">
-    <div id="titre">
-        <h1>Bienvenue sur le site de la GRIT</h1>
-        <h2>Trouvez le trajet qui vous correspond !</h2>
+    <div id="titre" align="center">
+        <h1>Bonjour <?php echo $userinfo['prenom']; ?> !</h1>
+        <h2>Bienvenue sur le site de la GRIT</h2>
+        <h3>Trouvez le trajet qui vous correspond !</h3>
     </div>
     <div id="area">
         <section id="itinéraire">
@@ -165,7 +178,7 @@
             <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 form-group" >
                 <form method="post" action="/IENAC15/aman_begaud_gaulmin_thirion/confirmation_message.php"  enctype="multipart/form-data">
                     <input name="name" placeholder="Nom Prénom" type="text" />
-                    <input name="email" placeholder="Email" type="text" />
+                    <input name="email" placeholder="Email" type="email" />
                     <textarea name="message" placeholder="Message"></textarea>
                     <button class="button" type="submit">Send Message</button>
                 </form>

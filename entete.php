@@ -35,7 +35,16 @@
                     <a href="contacts.php">Contact</a>
                 </li>
                 <li>
-                    <a href="connexion.php"><p>Connexion</p></a>
+                    <?php
+                        if(isset($_SESSION["id_user"]))
+                        {
+                            echo "<a href='connexion.php'><p>Deconnexion</p></a>";
+                        }
+                        else
+                        {
+                           echo "<a href='connexion.php'><p>Connexion</p></a>";
+                        }
+                    ?>
                 </li>
             </ul>
         </div>

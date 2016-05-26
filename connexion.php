@@ -1,71 +1,87 @@
-<?php include('config.php'); ?>
 <?php include('entete.php'); ?>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
 <?php
-if(isset($_SESSION['email']))
+session_start();
+
+$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
+
+
+if(isset($_POST["formconnexion"]))
 {
-    unset($_SESSION['email'], $_SESSION['userid']);
-    ?>
-    <div class="message">Vous avez bien &eacute;t&eacute; d&eacute;connect&eacute;.<br />
-        <a href="<?php echo $url_home; ?>">Accueil</a></div>
-    <?php
-}
-else
-{
-    $oemail = '';
-    if(isset($_POST['email'], $_POST['mdp']))
+    $emailconnect=htmlspecialchars($_POST["emailconnect"]);
+    $mdpconnect=sha1($_POST["mdpconnect"]);
+    if(!empty($emailconnect) AND !empty($mdpconnect))
     {
-        if(get_magic_quotes_gpc())
+        $requser = $bdd->prepare("SELECT * FROM Utilisateur WHERE email = ? AND mdp = ?");
+        $requser->execute(array($emailconnect, $mdpconnect));
+        $userexist = $requser->rowCount();
+        if($userexist == 1)
         {
-            $oemail = stripslashes($_POST['email']);
-            $email = mysql_real_escape_string(stripslashes($_POST['email']));
-            $mdp = stripslashes($_POST['mdp']);
+            $userinfo = $requser->fetch();
+            $_SESSION['id_user'] = $userinfo['id_user'];
+            $_SESSION['nom'] = $userinfo['nom'];
+            $_SESSION['prenom'] = $userinfo['prenom'];
+            $_SESSION['email'] = $userinfo['email'];
+            header('Location: index.php?id_user='.$_SESSION['id_user']);
         }
         else
         {
-            $email = mysql_real_escape_string($_POST['email']);
-            $mdp = $_POST['mdp'];
-        }
-        $req = mysql_query('select mdp,id_user from Utilisateur where email="'.$email.'"');
-        $dn = mysql_fetch_array($req);
-        if($dn['mdp']==$mdp and mysql_num_rows($req)>0)
-        {
-            $form = false;
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['userid'] = $dn['id_user'];
-            ?>
-            <div class="message">Vous avez bien été connecté. Vous pouvez accéder à votre espace membre.<br />
-                <a href="<?php echo $url_home; ?>">Accueil</a></div>
-            <?php
-        }
-        else
-        {
-            $form = true;
-            $message = 'La combinaison que vous avez entr&eacute; n\'est pas bonne.';
+            $erreur = "L'identifiant ou le mot de passe est incorrect !";
         }
     }
     else
     {
         $form = true;
+        $erreur = "Tous les champs doivent être remplis";
     }
-    if($form)
-    {
-        if(isset($message))
-        {
-            echo '<div class="message">'.$message.'</div>';
-        }
-        ?>
-        <div class="content">
+}
+
+?>
+
+    <div class="header" align="center">
+        <h2>Connexion</h2>
+    </div>
+        <div class="content" align="center">
             <form action="connexion.php" method="post">
-                Veuillez entrer vos identifiants pour vous connecter:<br />
-                <div class="center">
-                    <label for="email">Email</label><input type="text" name="email" id="email" value="<?php echo htmlentities($oemail, ENT_QUOTES, 'UTF-8'); ?>" /><br />
-                    <label for="mdp">Mot de passe</label><input type="password" name="mdp" id="mdp" /><br />
-                    <input type="submit" value="Connexion" />
+                Veuillez entrer vos identifiants pour vous connecter :<br /><br />
+                <?php if (isset($erreur))
+                        {
+                            echo "<font color='red'>" . $erreur . "</font>";
+                        } ?>
+                <div class="center" >
+                    <table>
+                        <tr>
+                            <td align="right">
+                                <label for="emailconnect">Identifiant  :</label>
+                            </td>
+                            <td>
+                                <input type="email" placeholder="email" name="emailconnect" id="emailconnect" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label for="mdpconnect">Mot de passe  :</label>
+                            </td>
+                            <td>
+                                <input type="password" placeholder="mot de passe" name="mdpconnect" id="mdpconnect" /><br />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <input type="submit" name="formconnexion" value="Connexion" />
+                </div>
+                <br />
+                <div>
+                    <h4>Si vous n'avez pas de compte : <a href="register.php">S'inscrire</a></h4>
                 </div>
             </form>
         </div>
-        <?php
-    }
-}
-?>
+
+</html>
+
 <?php include("footer.php"); ?>
