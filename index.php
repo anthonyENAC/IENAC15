@@ -122,48 +122,23 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 
                 <div class="row">
                     <div id="global">
-                        <p><label>Date de Départ</label><br /><input name="date" type="text" id="datepicker"></p>
+                        <p><label>Date de Départ</label><br />
+                            <input name="date" type="date" id="date_depart"></p>
                     </div>
 
                     <div id="global">
                         <p><label>Départ</label><br />
-                            <select name="heure_dep">
-                                <option value="05">05h</option>
-                                <option value="06">06h</option>
-                                <option value="07">07h</option>
-                                <option value="08">08h</option>
-                                <option value="09">09h</option>
-                                <option value="10">10h</option>
-                                <option value="11">11h</option>
-                                <option value="12">12h</option>
-                                <option value="13">13h</option>
-                                <option value="14">14h</option>
-                                <option value="15">15h</option>
-                                <option value="16">16h</option>
-                            </select>
+                                <input type="time" id="time_dep" name="time_dep">
                         </p>
                     </div>
 
                     <div id="global">
                         <p><label>Arrivée</label><br />
-                            <select name="heure_max">
-                                <option value="08">08h</option>
-                                <option value="09">09h</option>
-                                <option value="10">10h</option>
-                                <option value="11">11h</option>
-                                <option value="12">12h</option>
-                                <option value="13">13h</option>
-                                <option value="14">14h</option>
-                                <option value="15">15h</option>
-                                <option value="16">16h</option>
-                            </select>
+                            <input type="time" id="time_arr" name="time_arr">
                         </p>
                     </div>
 
                 </div>
-
-
-                
                 <br />
                 <button class="button" type="submit">Rechercher</button>
             </div>
@@ -172,23 +147,24 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
             </form>
         </section>
     </div>
+    
     <div id="contacter">
-        <h2>Des questions ou des commentaires?</h2>
-        <div class="row">
-            <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 form-group" >
-                <form method="post" action="/IENAC15/aman_begaud_gaulmin_thirion/confirmation_message.php"  enctype="multipart/form-data">
-                    <input name="name" placeholder="Nom Prénom" type="text" />
-                    <input name="email" placeholder="Email" type="email" />
-                    <textarea name="message" placeholder="Message"></textarea>
-                    <button class="button" type="submit">Send Message</button>
-                </form>
+        <div style="padding:4px; border:4px solid #424380;">
+            <div style="padding:3px; background-color:#424380;">
+                <h2>Des questions ou des commentaires?
             </div>
         </div>
+        <form method="post" action="">
+            <input name="name" placeholder="Nom Prénom" type="text" /><br /><br />
+            <input name="email" placeholder="Email" type="text" /><br /><br />
+            <input type="text" name="message" placeholder="Message" />
+        </form>
+        <br />
+        <button class="button" type="submit">Envoyer</button>
     </div>
 </div>
-</div>    
 
-<div
+
 <!-- Footer -->
 <?php include("footer.php"); ?>
 

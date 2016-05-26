@@ -29,16 +29,36 @@
             <ul id="navigation">
 
                 <li class='selected'>
-                    <a href="index.php">Accueil</a>
+                    <?php
+                    if(isset($_SESSION["id_user"]))
+                    {
+                        $_a= $_SESSION["id_user"];
+                        echo "<a href='index.php?id_user=$_a'<p>Accueil</p></a>";
+                    }
+                    else
+                    {
+                        echo "<a href='accueil.php'><p>Accueil</p></a>";
+                    }
+                    ?>
                 </li>
                 <li>
-                    <a href="contacts.php">Contact</a>
+                    <?php
+                    if(isset($_SESSION["id_user"]))
+                    {
+                        $_a= $_SESSION["id_user"];
+                        echo "<a href='contacts.php?id_user=$_a'<p>Contacts</p></a>";
+                    }
+                    else
+                    {
+                        echo "<a href='accueil.php'><p>Contacts</p></a>";
+                    }
+                    ?>
                 </li>
                 <li>
                     <?php
                         if(isset($_SESSION["id_user"]))
                         {
-                            echo "<a href='connexion.php'><p>Deconnexion</p></a>";
+                            echo "<a href='deconnexion.php'><p>Deconnexion</p></a>";
                         }
                         else
                         {

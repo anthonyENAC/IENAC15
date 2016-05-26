@@ -42,15 +42,10 @@ if(isset($_POST['forminscription']))
 
                             if ($mdp >= 6)
                             {
-                                    $dn = mysql_num_rows(mysql_query('SELECT id_user FROM Utilisateur WHERE email="' . $email . '"'));
-                                    if ($dn == 0)
-                                    {
-                                    $dn2 = mysql_num_rows(mysql_query('select id_user from Utilisateur'));
-                                    $id_user = $dn2 + 1;
-                                    $insertmbr = $bdd->prepare("INSERT INTO Utilisateur(id_user, nom, prenom, email, mdp, date_naiss) VALUES(?, ?, ?, ?, ?, ?)");
-                                    $insertmbr->execute(array($id_user, $nom, $prenom, $email, $mdp, $date_naiss));
+                                    $insertmbr = $bdd->prepare("INSERT INTO Utilisateur(nom, prenom, email, mdp, date_naiss) VALUES(?, ?, ?, ?, ?)");
+                                    $insertmbr->execute(array($nom, $prenom, $email, $mdp, $date_naiss));
                                     $form = false;
-                                    }
+
                             ?>
                             <div class="message" align="center">Vous avez bien été inscrit. Vous pouvez désormais vous
                                 connecter avec vos identifiants.<br/>
@@ -168,7 +163,7 @@ if($form)
                         </tr>
                         <tr>
                             <td align="right">
-                                <label for="date_naiss">Date de naissance format AAAA-MM-JJ :</label>
+                                <label for="date_naiss">Date de naissance :</label>
                             </td>
                             <td>
                                 <input type="date" id="date_naiss" name="date_naiss" placeholder="Date de naissance"/><br/>
