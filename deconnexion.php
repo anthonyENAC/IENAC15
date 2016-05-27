@@ -1,5 +1,8 @@
-<?php include('entete.php'); 
-session_start();
+<?php include('entete.php');
+if(!isset($_SESSION))
+{
+    session_start();
+}
 $_SESSION=array();
 session_destroy();
 ?>

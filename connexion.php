@@ -6,7 +6,10 @@
     </head>
 
 <?php
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 
 $bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
 
