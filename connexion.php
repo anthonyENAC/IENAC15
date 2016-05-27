@@ -30,7 +30,20 @@ if(isset($_POST["formconnexion"]))
             $_SESSION['nom'] = $userinfo['nom'];
             $_SESSION['prenom'] = $userinfo['prenom'];
             $_SESSION['email'] = $userinfo['email'];
-            header('Location: index.php?id_user='.$_SESSION['id_user']);
+            
+            $reqadmin = $bdd->prepare("SELECT * FROM Administrateur WHERE id_user = ?");
+            $reqadmin->execute(array($_SESSION['id_user']));
+            $adminexist = $reqadmin->rowCount();
+            if($adminexist == 1)
+            {
+                $_SESSION['co'] = 2;
+                header('Location: index.php?id_user='.$_SESSION['id_user']);
+            }
+            else
+            {
+                $_SESSION['co'] = 1;
+                header('Location: index.php?id_user='.$_SESSION['id_user']);
+            }
         }
         else
         {

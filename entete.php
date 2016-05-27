@@ -31,7 +31,17 @@ if(!isset($_SESSION))
     <div id="header">
         <div class="area">
             <div id="logo">
-                <a href="index.php"><img src="images/logo.png" alt="LOGO" height="86" width="170" /></a>
+                <a href=<?php
+                if(isset($_SESSION["id_user"]))
+                {
+                    $_a= $_SESSION["id_user"];
+                    echo "index.php?id_user=$_a";
+                }
+                else
+                {
+                    echo "accueil.php";
+                }
+                ?>><img src="images/logo.png" alt="LOGO" height="86" width="170" /></a>
             </div>
             <ul id="navigation">
 
@@ -52,12 +62,20 @@ if(!isset($_SESSION))
                     <?php
                     if(isset($_SESSION["id_user"]))
                     {
-                        $_a= $_SESSION["id_user"];
-                        echo "<a href='contacts.php?id_user=$_a'<p>Contacts</p></a>";
+                        if($_SESSION['co'] == 2)
+                        {
+                            $_a= $_SESSION["id_user"];
+                            echo "<a href='admin.php?id_user=$_a'<p>Admin</p></a>";
+                        }
+                        else
+                        {
+                            $_a= $_SESSION["id_user"];
+                            echo "<a href='contacts.php?id_user=$_a'<p>Contact</p></a>";
+                        }
                     }
                     else
                     {
-                        echo "<a href='accueil.php'><p>Contacts</p></a>";
+                        echo "<a href='accueil.php'><p>Contact</p></a>";
                     }
                     ?>
                 </li>
