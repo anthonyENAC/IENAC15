@@ -5,9 +5,21 @@ if(!isset($_SESSION))
 }
 ?>
 
+<?php
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+
 <div id="admin" align="center">
      <h2>Bienvenue sur la page d'administration</h2>
      <h5>Vous pouvez ici gérer la base de données du site de la GRIT</h5>
+   
     
 <form method="post" action="submit.php">
     <div id="ajout_admin" class="center">
@@ -15,15 +27,6 @@ if(!isset($_SESSION))
         <label>Nom</label>
         <select name="ajout_admin">
             <?php
-            try
-            {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-            }
-            catch (Exception $e)
-            {
-                die('Erreur : ' . $e->getMessage());
-            }
-
             $reponse = $bdd->query('SELECT * FROM Utilisateur WHERE Utilisateur.id_user NOT IN (SELECT * FROM Administrateur)');
 
             while ($donnees3 = $reponse->fetch())
@@ -38,6 +41,7 @@ if(!isset($_SESSION))
     </div>
 </form>
 
+    
 <form id="ajout_mode_type" method="post" action="submit.php">
     </br>Ajouter un type de mode de transport :</br>
     <label>Nom</label>
@@ -45,19 +49,11 @@ if(!isset($_SESSION))
     <input type="submit" value="Ajouter" />
 </form>
 
+    
 <form id="supp_mode_type" method="post" action="submit.php">
     </br>Supprimer un type de mode de transport :</br>
     <select name="supp_type">
         <?php
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $reponse = $bdd->query('SELECT * FROM Mode_Type');
 
         while ($donnees7 = $reponse->fetch())
@@ -71,6 +67,7 @@ if(!isset($_SESSION))
     <input type="submit" value="Supprimer" />
 </form>
 
+    
 <form id="ajout_station" method="post" action="submit.php">
     <div id="ajout_station" class="center">
         </br>Ajouter une station :</br>
@@ -84,19 +81,11 @@ if(!isset($_SESSION))
     </div>
 </form>
     
+    
 <form id="supp_station" method="post" action="submit.php">
     </br>Supprimer une station :</br>
     <select name="supp_station">
         <?php
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $reponse = $bdd->query('SELECT * FROM Station');
 
         while ($donnees8 = $reponse->fetch())
@@ -110,6 +99,7 @@ if(!isset($_SESSION))
     <input type="submit" value="Supprimer" />
 </form>        
 
+    
 <form method="post" action="submit.php">
     <div id="ajout_transp_troncon" class="center">
         </br>Ajouter un nouveau transport pour un tronçon :</br>
@@ -122,15 +112,6 @@ if(!isset($_SESSION))
         <label>Tronçon</label>
         <select name="troncon">
             <?php
-            try
-            {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-            }
-            catch (Exception $e)
-            {
-                die('Erreur : ' . $e->getMessage());
-            }
-
             $reponse = $bdd->query('SELECT * FROM Troncon');
 
             while ($donnees4 = $reponse->fetch())
@@ -145,15 +126,6 @@ if(!isset($_SESSION))
             <label>Etat du mode de transport</label>
             <select name="etat_mode">
                 <?php
-                try
-                {
-                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-                }
-                catch (Exception $e)
-                {
-                    die('Erreur : ' . $e->getMessage());
-                }
-
                 $reponse = $bdd->query('SELECT * FROM Etat');
 
                 while ($donnees = $reponse->fetch())
@@ -168,15 +140,6 @@ if(!isset($_SESSION))
             <label>Type de mode de transport</label>
             <select name="type_mode">
                 <?php
-                try
-                {
-                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-                }
-                catch (Exception $e)
-                {
-                    die('Erreur : ' . $e->getMessage());
-                }
-
                 $reponse = $bdd->query('SELECT * FROM Mode_Type');
 
                 while ($donnees2 = $reponse->fetch())
@@ -192,19 +155,11 @@ if(!isset($_SESSION))
     </div>
 </form>
 
+    
 <form id="supp_transp_troncon" method="post" action="submit.php">
     </br>Supprimer un transport pour un tronçon :</br>
     <select name="supp_transp_troncon">
         <?php
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $reponse = $bdd->query('SELECT * FROM Troncon INNER JOIN Transport_Troncon ON Troncon.id_troncon = Transport_Troncon.id_troncon');
 
         while ($donnees10 = $reponse->fetch())
@@ -222,6 +177,7 @@ if(!isset($_SESSION))
     <input type="submit" value="Supprimer" />
 </form>
 
+    
 <form id="ajout_troncon" method="post" action="submit.php">
     <div class="center">
         </br>Ajouter un tronçon :</br>
@@ -230,15 +186,6 @@ if(!isset($_SESSION))
         <label>Station de départ</label>
         <select name="station_dep">
             <?php
-            try
-            {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-            }
-            catch (Exception $e)
-            {
-                die('Erreur : ' . $e->getMessage());
-            }
-
             $reponse = $bdd->query('SELECT * FROM Station');
 
             while ($donnees5 = $reponse->fetch())
@@ -252,18 +199,6 @@ if(!isset($_SESSION))
         <label>Station d'arrivée</label>
         <select name="station_arr">
             <?php
-            try
-            {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-            }
-            catch (Exception $e)
-            {
-                die('Erreur : ' . $e->getMessage());
-            }
-
-            $stat1 = $_POST['station_dep'];
-
-
             $reponse = $bdd->query('SELECT * FROM Station');
 
             while ($donnees6 = $reponse->fetch())
@@ -282,15 +217,6 @@ if(!isset($_SESSION))
     </br>Supprimer un tronçon :</br>
     <select name="supp_troncon">
         <?php
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $reponse = $bdd->query('SELECT * FROM Troncon');
 
         while ($donnees9 = $reponse->fetch())
