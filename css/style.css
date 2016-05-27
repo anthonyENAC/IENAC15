@@ -307,12 +307,3 @@ section {
     font-size: 20px;
     margin: 30px 10px 0;
 }
-
-/*---------------------------- ADMIN ------------------------------------*/
-
-#ajout_mode_type {
-    display: table-cell;
-}
-#supp_mode_type {
-    display: table-cell;
-}
