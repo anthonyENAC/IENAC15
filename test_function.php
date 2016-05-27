@@ -74,3 +74,34 @@ while ($donnees = $reponse->fetch())
 
 $reponse->closeCursor(); // Termine le traitement de la requête
 ?>
+
+<?php
+If ($stock == $donnees4['station_dep'] and $station_arr!=$donnees4['station_dep']) {
+    ?>
+    <tr>
+        <td><?php echo $donnees4['id_troncon']; ?></td>
+        <td><?php echo $donnees4['nom_troncon']; ?></td>
+        <td>
+            <?php $test = $donnees2['nom_troncon']; ?>
+            <?php $reponse5 = $bdd->query("SELECT * FROM Transport_Troncon where heure_passage/3600>=$heure_dep and heure_passage/3600<=$heure_max and (heure_passage+duree)/3600<=$heure_max");
+            while ($donnees5 = $reponse5->fetch()) {
+                ?>
+                <?php echo((int)($donnees5['heure_passage'] / 3600)); ?>h<?php echo(($donnees5['heure_passage'] / 3600 - (int)($donnees5['heure_passage'] / 3600)) * 60); ?>min
+                <br/><?php } ?>
+        </td>
+        <td>
+            <?php $test = $donnees2['nom_troncon']; ?>
+            <?php $reponse5 = $bdd->query("SELECT * FROM Transport_Troncon where heure_passage/3600>=$heure_dep and heure_passage/3600<=$heure_max and (heure_passage+duree)/3600<=$heure_max");
+            while ($donnees5 = $reponse5->fetch()) {
+                ?>
+                <?php echo (int)(($donnees5['heure_passage'] + $donnees5['duree']) / 3600); ?>h<?php echo((($donnees5['heure_passage'] + $donnees5['duree']) / 3600 - (int)(($donnees5['heure_passage'] + $donnees5['duree']) / 3600)) * 60); ?>min
+                <br/><?php } ?>
+        </td>
+    </tr>
+
+    <?php
+}
+
+$station_dep = $donnees4['station_dep'];
+$station_arr = $donnees4['station_arr'];
+?>

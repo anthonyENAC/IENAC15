@@ -4,7 +4,6 @@
 session_start();
 include("entete.php");
 $bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
-
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 {
     $getid = intval($_GET['id_user']);
@@ -18,7 +17,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 <div id ="contents">
     <div id="titre" align="center">
         <?php
-            if(isset($_SESSION['id_user']))
+        if(isset($_SESSION['id_user']))
         {
         $prenom = $_SESSION['prenom'];
         echo "<h1>Bonjour $prenom !</h1>"
@@ -48,20 +47,15 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                         <?php
                                         try {
                                             // On se connecte à MySQL
-
                                             $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                                         } catch (Exception $e) {
                                             // En cas d'erreur, on affiche un message et on arrête tout
                                             die('Erreur : ' . $e->getMessage());
                                         }
-
                                         // Si tout va bien, on peut continuer
-
                                         // On récupère tout le contenu de la table jeux_video
                                         $reponse = $bdd->query('SELECT * FROM Station');
-
                                         // On affiche chaque entrée une à une
-
                                         while ($donnees = $reponse->fetch())
                                         {
                                         ?>
@@ -72,9 +66,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                     :<br/>
                                 </p>
                                 <?php
-
                                 }
-
                                 $reponse->closeCursor(); // Termine le traitement de la requête
                                 ?>
                                 </select>
@@ -88,20 +80,15 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                         <?php
                                         try {
                                             // On se connecte à MySQL
-
                                             $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                                         } catch (Exception $e) {
                                             // En cas d'erreur, on affiche un message et on arrête tout
                                             die('Erreur : ' . $e->getMessage());
                                         }
-
                                         // Si tout va bien, on peut continuer
-
                                         // On récupère tout le contenu de la table jeux_video
                                         $reponse = $bdd->query('SELECT nom_station FROM Station');
-
                                         // On affiche chaque entrée une à une
-
                                         while ($donnees = $reponse->fetch())
                                         {
                                         ?>
@@ -112,9 +99,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                     :<br/>
                                 </p>
                                 <?php
-
                                 }
-
                                 $reponse->closeCursor(); // Termine le traitement de la requête
                                 ?>
                                 </select>
@@ -172,15 +157,14 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 </div>
 
 <?php
-            }
-            else
-            {
-                echo "Veuillez vous connecter <a href='connexion.php'>Se Connecter</a>";
-                header("Location : accueil.php");
-            }
+}
+else
+{
+    echo "Veuillez vous connecter <a href='connexion.php'>Se Connecter</a>";
+    header("Location : accueil.php");
+}
 ?>
 
 
 <!-- Footer -->
 <?php include("footer.php"); ?>
-
