@@ -209,8 +209,13 @@ session_start();
 
         while ($donnees10 = $reponse->fetch())
         {
+            echo date('h:i', $time);
             ?>
-            <option value="<?php echo $donnees10['id_troncon'] ?>"><?php echo "{$donnees10['id_transport']} - {$donnees10['nom_troncon']} - {$donnees10['prix']}€ -" ?></option>
+            <option value="<?php echo $donnees10['num'] ?>"><?php echo "{$donnees10['id_transport']} - 
+            {$donnees10['nom_troncon']} - "; if ($donnees10['prix'] == NULL) {
+                    echo "0";} else {echo $donnees10['prix'];} echo "€ - "; if ($donnees10['heure_passage'] == NULL) {
+                    echo "Pas d'horaire défini";} else {echo date('H:i', $donnees10['heure_passage']);}
+                ?></option>
             <?php
         }
         ?>
@@ -300,7 +305,6 @@ session_start();
     </select>
     <input type="submit" value="Supprimer" />
 </form>
-
 </div>
 
 <?php include("footer.php"); ?>

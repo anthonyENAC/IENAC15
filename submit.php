@@ -7,8 +7,6 @@ if ($mysqli->connect_errno) {
     exit();
     }
 
-
-
 $option1 = isset($_POST['new_type']) ? true : false;
 $option2 = isset($_POST['nom_station'], $_POST['lat'], $_POST['lng']) ? true : false;
 $option3 = isset($_POST['ajout_admin']) ? true : false;
@@ -18,6 +16,7 @@ $option5 = isset($_POST['station_dep'], $_POST['station_arr']) ? true : false;
 $option6 = isset($_POST['supp_type']) ? true : false;
 $option7 = isset($_POST['supp_station']) ? true : false;
 $option8 = isset($_POST['supp_troncon']) ? true : false;
+$option9 = isset($_POST['supp_transp_troncon']) ? true : false;
 
 
 if ($option1) {
@@ -204,6 +203,27 @@ if ($option8) {
     $supp_troncon = htmlentities($_POST['supp_troncon'], ENT_QUOTES, "UTF-8");
 
     if ($mysqli->query("DELETE FROM Troncon WHERE Troncon.id_troncon = $supp_troncon") === TRUE) {
+        ?>
+        <div align="center">
+            <img src="images/ok.svg" height="128px" width="128px">
+            <h4>Les nouvelles données ont bien été supprimées la base de données.</h4>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div align="center">
+            <img src="images/error.png" height="128px" width="128px">
+            <h4>Problème détécté dans la suppression des données.</h4>
+        </div>
+        <?php ;
+    }
+    $mysqli->close();
+}
+
+if ($option9) {
+    $supp_transp_troncon = htmlentities($_POST['supp_transp_troncon'], ENT_QUOTES, "UTF-8");
+
+    if ($mysqli->query("DELETE FROM Transport_Troncon WHERE num = $supp_transp_troncon") === TRUE) {
         ?>
         <div align="center">
             <img src="images/ok.svg" height="128px" width="128px">
