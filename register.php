@@ -11,7 +11,7 @@
 
 <?php
 
-$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
+$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', 'mysql');
 
 if(isset($_POST['forminscription']))
 {
