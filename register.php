@@ -166,7 +166,8 @@ if($form)
                                 <label for="date_naiss">Date de naissance :</label>
                             </td>
                             <td>
-                                <input type="date" id="date_naiss" name="date_naiss" placeholder="Date de naissance"/><br/>
+                                <input type="date" id="date_naiss" name="date_naiss" placeholder="Date de naissance"/>
+                                <br/>
                             </td>
                         </tr>
                     </table>

@@ -1,5 +1,8 @@
-<?php include('entete.php'); ?>
-
+<?php include('entete.php'); 
+session_start();
+$_SESSION=array();
+session_destroy();
+?>
     <html>
     
             <div align="center">
