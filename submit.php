@@ -1,7 +1,7 @@
 <?php include ('entete.php');
 session_start();
 
-$mysqli = new mysqli("localhost", "root", "mysql", "GRIT");
+$mysqli = new mysqli("localhost", "root", "", "GRIT");
 if ($mysqli->connect_errno) {
     printf("Échec de la connexion : %s\n", $mysqli->connect_error);
     exit();
@@ -15,6 +15,9 @@ $option3 = isset($_POST['ajout_admin']) ? true : false;
 $option4 = isset($_POST['new_duree'], $_POST['new_heure'], $_POST['new_prix'], $_POST['troncon'], $_POST['etat_mode'],
     $_POST['type_mode']) ? true : false;
 $option5 = isset($_POST['station_dep'], $_POST['station_arr']) ? true : false;
+$option6 = isset($_POST['supp_type']) ? true : false;
+$option7 = isset($_POST['supp_station']) ? true : false;
+$option8 = isset($_POST['supp_troncon']) ? true : false;
 
 
 if ($option1) {
@@ -102,7 +105,7 @@ if ($option4) {
     {
         try
         {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
         }
         catch (Exception $e)
         {
@@ -149,6 +152,69 @@ if ($option5) {
         <div align="center">
             <img src="images/error.png" height="128px" width="128px">
             <h4>Problème détécté dans l'ajout des données.</h4>
+        </div>
+        <?php ;
+    }
+    $mysqli->close();
+}
+
+if ($option6) {
+    $supp_type = htmlentities($_POST['supp_type'], ENT_QUOTES, "UTF-8");
+
+    if ($mysqli->query("DELETE FROM Mode_Type WHERE Mode_Type.id_type = $supp_type") === TRUE) {
+        ?>
+        <div align="center">
+            <img src="images/ok.svg" height="128px" width="128px">
+            <h4>Les nouvelles données ont bien été supprimées la base de données.</h4>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div align="center">
+            <img src="images/error.png" height="128px" width="128px">
+            <h4>Problème détécté dans la suppression des données.</h4>
+        </div>
+        <?php ;
+    }
+    $mysqli->close();
+}
+
+if ($option7) {
+    $supp_station = htmlentities($_POST['supp_station'], ENT_QUOTES, "UTF-8");
+
+    if ($mysqli->query("DELETE FROM Station WHERE Station.id_station = $supp_station") === TRUE) {
+        ?>
+        <div align="center">
+            <img src="images/ok.svg" height="128px" width="128px">
+            <h4>Les nouvelles données ont bien été supprimées la base de données.</h4>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div align="center">
+            <img src="images/error.png" height="128px" width="128px">
+            <h4>Problème détécté dans la suppression des données.</h4>
+        </div>
+        <?php ;
+    }
+    $mysqli->close();
+}
+
+if ($option8) {
+    $supp_troncon = htmlentities($_POST['supp_troncon'], ENT_QUOTES, "UTF-8");
+
+    if ($mysqli->query("DELETE FROM Troncon WHERE Troncon.id_troncon = $supp_troncon") === TRUE) {
+        ?>
+        <div align="center">
+            <img src="images/ok.svg" height="128px" width="128px">
+            <h4>Les nouvelles données ont bien été supprimées la base de données.</h4>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div align="center">
+            <img src="images/error.png" height="128px" width="128px">
+            <h4>Problème détécté dans la suppression des données.</h4>
         </div>
         <?php ;
     }

@@ -7,44 +7,69 @@ session_start();
      <h5>Vous pouvez ici gérer la base de données du site de la GRIT</h5>
     
 <form method="post" action="submit.php">
-    <div id="ajout_mode_type" class="center">
-            </br>Passer un utilisateur en administrateur :</br>
-            <label>Nom</label>
-            <select name="ajout_admin">
-                <?php
-                try
-                {
-                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
-                }
-                catch (Exception $e)
-                {
-                    die('Erreur : ' . $e->getMessage());
-                }
-
-                $reponse = $bdd->query('SELECT * FROM Utilisateur WHERE Utilisateur.id_user NOT IN (SELECT * FROM Administrateur)');
-
-                while ($donnees3 = $reponse->fetch())
-                {
-                    ?>
-                    <option value="<?php echo $donnees3['id_user'] ?>"><?php echo "{$donnees3['prenom']} {$donnees3['nom']}" ?></option>
-                    <?php
-                }
-                ?>
-            </select>
-            <input type="submit" value="Ajouter" />
-        </div>
-    </form>
-
-<form method="post" action="submit.php">
-    <div id="ajout_mode_type" class="center">
-        </br>Ajouter un type de mode de transport :</br>
+    <div id="ajout_admin" class="center">
+        </br>Passer un utilisateur en administrateur :</br>
         <label>Nom</label>
-        <input type="text" name="new_type" />
+        <select name="ajout_admin">
+            <?php
+            try
+            {
+                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+            }
+            catch (Exception $e)
+            {
+                die('Erreur : ' . $e->getMessage());
+            }
+
+            $reponse = $bdd->query('SELECT * FROM Utilisateur WHERE Utilisateur.id_user NOT IN (SELECT * FROM Administrateur)');
+
+            while ($donnees3 = $reponse->fetch())
+            {
+                ?>
+                <option value="<?php echo $donnees3['id_user'] ?>"><?php echo "{$donnees3['prenom']} {$donnees3['nom']}" ?></option>
+                <?php
+            }
+            ?>
+        </select>
         <input type="submit" value="Ajouter" />
     </div>
 </form>
 
-<form method="post" action="submit.php">
+<form id="ajout_mode_type" method="post" action="submit.php">
+    </br>Ajouter un type de mode de transport :</br>
+    <label>Nom</label>
+    <input type="text" name="new_type" />
+    <input type="submit" value="Ajouter" />
+</form>
+
+<form id="supp_mode_type" method="post" action="submit.php">
+    </br>Supprimer un type de mode de transport :</br>
+    <label>Nom</label>
+    <select name="supp_type">
+        <?php
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+        }
+        catch (Exception $e)
+        {
+            die('Erreur : ' . $e->getMessage());
+        }
+
+        $reponse = $bdd->query('SELECT * FROM Mode_Type');
+
+        while ($donnees7 = $reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees7['id_type'] ?>"><?php echo $donnees7['descr_type'] ?></option>
+            <?php
+        }
+        ?>
+    </select>
+    <input type="submit" value="Supprimer" />
+</form>
+
+<form id="ajout_station" method="post" action="submit.php">
     <div id="ajout_station" class="center">
         </br>Ajouter une station :</br>
         <label>Nom</label>
@@ -56,6 +81,33 @@ session_start();
         <input type="submit" value="Ajouter" />
     </div>
 </form>
+    
+<form id="supp_station" method="post" action="submit.php">
+    </br>Supprimer une station :</br>
+    <label>Nom</label>
+    <select name="supp_station">
+        <?php
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+        }
+        catch (Exception $e)
+        {
+            die('Erreur : ' . $e->getMessage());
+        }
+
+        $reponse = $bdd->query('SELECT * FROM Station');
+
+        while ($donnees8 = $reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees8['id_station'] ?>"><?php echo $donnees8['nom_station'] ?></option>
+            <?php
+        }
+        ?>
+    </select>
+    <input type="submit" value="Supprimer" />
+</form>        
 
 <form method="post" action="submit.php">
     <div id="ajout_transp_troncon" class="center">
@@ -71,7 +123,7 @@ session_start();
             <?php
             try
             {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
             }
             catch (Exception $e)
             {
@@ -94,7 +146,7 @@ session_start();
                 <?php
                 try
                 {
-                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                 }
                 catch (Exception $e)
                 {
@@ -117,7 +169,7 @@ session_start();
                 <?php
                 try
                 {
-                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                 }
                 catch (Exception $e)
                 {
@@ -139,8 +191,35 @@ session_start();
     </div>
 </form>
 
-<form method="post" action="submit.php">
-    <div id="ajout_mode_type" class="center">
+<form id="supp_transp_troncon" method="post" action="submit.php">
+    </br>Supprimer un transport pour un tronçon :</br>
+    <label>Nom</label>
+    <select name="supp_transp_troncon">
+        <?php
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+        }
+        catch (Exception $e)
+        {
+            die('Erreur : ' . $e->getMessage());
+        }
+
+        $reponse = $bdd->query('SELECT * FROM Troncon INNER JOIN Transport_Troncon ON Troncon.id_troncon = Transport_Troncon.id_troncon');
+
+        while ($donnees10 = $reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees10['id_troncon'] ?>"><?php echo "{$donnees10['id_transport']} - {$donnees10['nom_troncon']} - {$donnees10['prix']}€ -" ?></option>
+            <?php
+        }
+        ?>
+    </select>
+    <input type="submit" value="Supprimer" />
+</form>
+
+<form id="ajout_troncon" method="post" action="submit.php">
+    <div class="center">
         </br>Ajouter un tronçon :</br>
         <label>Nom</label>
         <input type="text" name="nom_troncon" /></br>
@@ -149,7 +228,7 @@ session_start();
             <?php
             try
             {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
             }
             catch (Exception $e)
             {
@@ -171,7 +250,7 @@ session_start();
             <?php
             try
             {
-                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
             }
             catch (Exception $e)
             {
@@ -193,6 +272,33 @@ session_start();
         </select></br>
         <input type="submit" value="Ajouter" />
     </div>
+</form>
+
+<form id="supp_troncon" method="post" action="submit.php">
+    </br>Supprimer un tronçon :</br>
+    <label>Nom</label>
+    <select name="supp_troncon">
+        <?php
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+        }
+        catch (Exception $e)
+        {
+            die('Erreur : ' . $e->getMessage());
+        }
+
+        $reponse = $bdd->query('SELECT * FROM Troncon');
+
+        while ($donnees9 = $reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees9['id_troncon'] ?>"><?php echo $donnees9['nom_troncon'] ?></option>
+            <?php
+        }
+        ?>
+    </select>
+    <input type="submit" value="Supprimer" />
 </form>
 
 </div>

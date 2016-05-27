@@ -3,7 +3,7 @@
 <?php
 session_start();
 include("entete.php");
-$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', 'mysql');
+$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
 
 if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 {
@@ -43,7 +43,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                 {
                                     // On se connecte à MySQL
 
-                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                                 }
                                 catch(Exception $e)
                                 {
@@ -83,7 +83,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
                                 {
                                     // On se connecte à MySQL
 
-                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', 'mysql');
+                                    $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
                                 }
                                 catch(Exception $e)
                                 {
