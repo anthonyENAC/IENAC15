@@ -216,24 +216,50 @@ section {
     color: #424380;
     text-transform: uppercase;
 }
-/*------------------------------ Commentaire ------------------------*/
-#contents
-{
-    margin: 0 0 0;
+
+#test1{
+    background-color:red;
+}
+#test2{
+    background-color:red;
+}
+#test3{
+    background-color:red;
 }
 
-#contacter h2
-{
-    text-transform:uppercase;
-    font-weight:600;
-    color:white;
-    font-size:1.5em;
-    letter-spacing:7px;
-    text-shadow:0.05em;
-    text-align: center;
-    margin: 30px 0 0;
+#test10{
+    background-color:blueviolet;
 }
-
+#test13{
+    background-color:green;
+}
+#test14{
+    background-color:lawngreen;
+}
+#test17{
+    background-color:palevioletred;
+}
+#test18{
+    background-color:yellow;
+}
+#test20{
+    background-color:orchid;
+}
+#test26{
+    background-color:gainsboro;
+}
+#test23{
+    background-color:darkred;
+}
+#test31{
+    background-color:brown;
+}
+#test33{
+    background-color:darkslategrey;
+}
+#test27{
+    background-color:slategrey;
+}
 
 /*-------------------------------tableau-----------------------------*/
 #tableau2{margin-top:50px;}
@@ -242,8 +268,7 @@ section {
     background: url(../images/bg-footer.png) repeat left top;
     display: inline-block;
     width: 100%;
-    padding: 20px 0;
-    margin: 20px 0;
+    padding: 30px 0;
 }
 #footer p {
     text-align: center;
@@ -265,9 +290,6 @@ section {
 }
 #concepteur div {
     display: inline;
-
-
-
 }
 #contacter {
     margin: 20px 0 0;
@@ -276,7 +298,7 @@ section {
 #contacter h2 {
     text-transform:uppercase;
     font-weight:600;
-    color:#ec971f;
+    color:#6E0B14;
     font-size:1.5em;
     letter-spacing:7px;
     text-shadow:0.05em;
