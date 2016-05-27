@@ -44,7 +44,6 @@ session_start();
 
 <form id="supp_mode_type" method="post" action="submit.php">
     </br>Supprimer un type de mode de transport :</br>
-    <label>Nom</label>
     <select name="supp_type">
         <?php
         try
@@ -84,7 +83,6 @@ session_start();
     
 <form id="supp_station" method="post" action="submit.php">
     </br>Supprimer une station :</br>
-    <label>Nom</label>
     <select name="supp_station">
         <?php
         try
@@ -193,7 +191,6 @@ session_start();
 
 <form id="supp_transp_troncon" method="post" action="submit.php">
     </br>Supprimer un transport pour un tronçon :</br>
-    <label>Nom</label>
     <select name="supp_transp_troncon">
         <?php
         try
@@ -209,7 +206,6 @@ session_start();
 
         while ($donnees10 = $reponse->fetch())
         {
-            echo date('h:i', $time);
             ?>
             <option value="<?php echo $donnees10['num'] ?>"><?php echo "{$donnees10['id_transport']} - 
             {$donnees10['nom_troncon']} - "; if ($donnees10['prix'] == NULL) {
@@ -281,7 +277,6 @@ session_start();
 
 <form id="supp_troncon" method="post" action="submit.php">
     </br>Supprimer un tronçon :</br>
-    <label>Nom</label>
     <select name="supp_troncon">
         <?php
         try
