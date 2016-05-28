@@ -1,3 +1,9 @@
+/* GENERAL */
+html, body{
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
 /*------------------------------------ENTETE-----------------------------------*/
 
 /** Sprites **/
@@ -113,7 +119,7 @@ h2, h3 {
     text-transform: uppercase;
 }
 h2 span {
-    color: #fc6700;
+    color: white;
 }
 h3 {
     font-size: 20px;
@@ -187,6 +193,13 @@ section {
 }
 #trajet {
     margin: 20px 340px 0;
+    padding:1px;
+    background-color:ivory;
+    border:2px solid #656ab0;
+    -moz-border-radius:9px;
+    -khtml-border-radius:9px;
+    -webkit-border-radius:9px;
+    border-radius:9px;
 }
 #global {
     margin-left: auto;
@@ -216,51 +229,49 @@ section {
     color: #424380;
     text-transform: uppercase;
 }
-
-#test1{
-    background-color:red;
-}
-#test2{
-    background-color:red;
-}
-#test3{
-    background-color:red;
+/*------------------------------ Commentaire ------------------------*/
+#contacter
+{
+    padding: 0 30px;
 }
 
-#test10{
-    background-color:blueviolet;
+#contacter h2
+{
+    text-transform:uppercase;
+    font-weight:600;
+    color:white;
+    font-size:1.5em;
+    letter-spacing:7px;
+    text-shadow:0.05em;
+    text-align: center;
+    margin: 30px 0 0;
 }
-#test13{
-    background-color:green;
-}
-#test14{
-    background-color:lawngreen;
-}
-#test17{
-    background-color:palevioletred;
-}
-#test18{
-    background-color:yellow;
-}
-#test20{
-    background-color:orchid;
-}
-#test26{
-    background-color:gainsboro;
-}
-#test23{
-    background-color:darkred;
-}
-#test31{
-    background-color:brown;
-}
-#test33{
-    background-color:darkslategrey;
-}
-#test27{
-    background-color:slategrey;
-}
+form{margin:30px 0;}
 
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select, form textarea
+{
+    border:0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: inset 2px 2px 0px 0px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    line-height: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+form textarea{min-height: 11em;}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+input:-moz-placeholder,
+:-ms-input-placeholder
+{
+    color: #555 !important;
+}
 /*-------------------------------tableau-----------------------------*/
 #tableau2{margin-top:50px;}
 /*------------------------------ FOOTER ------------------------------*/
@@ -268,10 +279,15 @@ section {
     background: url(../images/bg-footer.png) repeat left top;
     display: inline-block;
     width: 100%;
-    padding: 30px 0;
+    padding: 20px 0;
+    margin: 0 0;
+    bottom:0px;
+}
+#footer li
+{
+    display: inline-block;
 }
 #footer p {
-    text-align: center;
     color: #2f2203;
     font: 12px/24px Arial, Helvetica, sans-serif;
     margin: 0;
@@ -298,7 +314,7 @@ section {
 #contacter h2 {
     text-transform:uppercase;
     font-weight:600;
-    color:#6E0B14;
+    color:#ec971f;
     font-size:1.5em;
     letter-spacing:7px;
     text-shadow:0.05em;
@@ -314,7 +330,7 @@ section {
     margin: 10px 0 0;
 }
 #contact-info p {
-    font-size: 15px;
+    font-size: 19px;
     margin: 10px 30px 0;
 }
 #cv-title {
@@ -328,4 +344,13 @@ section {
     color: black;
     font-size: 20px;
     margin: 30px 10px 0;
+}
+
+/*---------------------------- ADMIN ------------------------------------*/
+
+#ajout_mode_type {
+    display: table-cell;
+}
+#supp_mode_type {
+    display: table-cell;
 }

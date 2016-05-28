@@ -10,8 +10,6 @@
         </div>
         <div id="contact-info" class="vcard">
 
-            <!-- Microformats! -->
-
             <h1 class="fn">Anthony AMAN</h1>
 
             <p>
@@ -110,3 +108,4 @@
 
     </div>
 
+<?php include("footer.php"); ?>
