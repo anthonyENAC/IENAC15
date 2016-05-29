@@ -351,11 +351,3 @@ input:-moz-placeholder,
     color: lightseagreen;
     font-size: 23px;
 }
-/*---------------------------- ADMIN ------------------------------------*/
-
-#ajout_mode_type {
-    display: table-cell;
-}
-#supp_mode_type {
-    display: table-cell;
-}

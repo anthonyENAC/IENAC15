@@ -28,8 +28,6 @@ catch (Exception $e)
     });
 </script>
 
-<body>
-
 <div id="accordion">
     <h3>Passer un utilisateur en administrateur</h3>
     <div>
@@ -65,7 +63,7 @@ catch (Exception $e)
 
 
         <form id="supp_mode_type" method="post" action="submit.php">
-            </br>Supprimer un type de mode de transport :</br><br />
+            </br>Supprimer un type de mode de transport :</br>
             <select name="supp_type">
                 <?php
                 $reponse = $bdd->query('SELECT * FROM Mode_Type');
