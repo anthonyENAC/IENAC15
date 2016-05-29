@@ -5,12 +5,10 @@
 <!-- CV Matthieu GAULMIN -->
 
 <div id="page-wrap">
-
-    <img src="images/matthieu_gaulmin.jpg" alt="Photo de Matthieu GAULMIN" id="pic" />
-
+    <div id="profil">
+        <img src="images/matthieu_gaulmin.jpg" alt="Photo de Matthieu GAULMIN" id="pic" />
+    </div>
     <div id="contact-info" class="vcard">
-
-        <!-- Microformats! -->
 
         <h1 class="fn">Matthieu GAULMIN</h1>
 
@@ -26,87 +24,76 @@
         </p>
     </div>
 
+    <div id="cv-title"
+    <h2>
+        Elève Ingénieur à l'ENAC
+    </h2>
+    </div>
+
     <div id="objective">
         <p>
             Actuellement étudiant en première année à l'ENAC et passionné d'aviation, je souhaiterais travailler plus tard dans la conception de systèmes pour l'aéronautique.
         </p>
     </div>
+    <br /><br /><br />
 
-    <div class="clear"></div>
+    <div id="corps_cv" align="center"><h2>FORMATION</h2></div>
+        <h3>2015 - Auj : Ecole Nationale de l'Aviation Civile (ENAC)</h3>
+        <ul>
+            <li><h4>Ingénieur IENAC<br />
+                    Toulouse, France</h4></li>
+        </ul>
+        <h3>2013 - 2015 : CPGE scientifique MPSI-MP</h3>
+        <ul>
+            <li><h4>Lycée Lakanal, Sceaux, France</h4></li>
+        </ul>
+        <h3>2013 : Baccalauréat général, série scientifique, Mention Bien</h3>
+        <ul>
+            <li><h4>Option SVT, Spécialité Mathématiques, Lycée Gustave Eiffel, Cachan, France</h4></li>
+        </ul>
+        <br /><br /><br />
 
-    <dl>
-        <dd class="clear"></dd>
+    <div id="corps_cv" align="center"><h2>EXPERIENCE</h2></div>
+        <h3>Nov 2015 - Auj :</i> The Mars Society, MDRS</h3>
+        <ul>
+            <li><h4>Membre de l'équipe robotique d'un projet pour la Mars
+                    Desert Research Station dans l'Utah en 2017</h4>
+        </ul>
+        <h3>Août 2014 : Emploi saisonnier, Crédit Agricole, Vitry-sur-Seine</h3>
+        <ul>
+            <li><h4>Accueil des clients en agence, mise à jour de la base de
+                    données des clients de l’agence.</h4></li>
+        </ul>
 
-        <dt>Formation</dt>
-        <dd>
-            <h2><i>2015 - Auj :</i> Ecole Nationale de l'Aviation Civile (ENAC)</h2>
-            <p>Ingénieur IENAC<br />
-                Toulouse, France</p>
-            <h2><i>2013 - 2015 :</i> CPGE scientifique MPSI-MP</h2>
-            <p>Lycée Lakanal, Sceaux, France</p>
-            <h2><i>2013 :</i> Baccalauréat général, série scientifique, Mention Bien</h2>
-            <p>Option SVT, Spécialité Mathématiques, Lycée Gustave Eiffel, Cachan, France</p>
+        <h3>Août 2013 : Emploi saisonnier, CNP Assurances - Comptabilité fournisseurs, Paris</h3>
+        <ul>
+            <li><h4>Réactualisation de tâches administratives, prise de
+                    contact avec les fournisseurs pour le remboursement de prestations effectuées</h4></li>
+        </ul>
+        <br /><br /><br />
 
-        </dd>
+    <div id="corps_cv" align="center"><h2>COMPETENCES</h2></div>
+        <h3>Compétences informatiques</h3>
+        <ul>
+            <li><h4>Basiques : Unix, MatLab, LaTeX </h4></li>
+            <li><h4>Avancées : Python, Langage SQL, Suite Office, Windows,
+                    Linux, Microsoft Office, OpenVSP, HTML, CSS</h4></li>
+        </ul>
+        <h3>Langues</h3>
+        <ul>
+            <li><h4>Anglais : Niveau C1</h4></li>
+            <li><h4>Allemand : Niveau B1</h4></li>
+        </ul>
+        <br /><br /><br />
 
-        <dd class="clear"></dd>
+    <div id="corps_cv" align="center"><h2>CENTRES D'INTERETS</h2></div>
+        <h3>Associations: </h3>
+        <ul>
+            <h4><li>Pratique de l’Aïkido pendant 8 ans</li>
+            <li>Participation à Prépa Brevet ENAC : cours de soutien bénévoles à des collégiens pour la préparation du diplôme national du Brevet</li>
+            <li>Membre du club d’astronomie de l’ENAC</li>
+            <li>Participation aux Cordées de la Réussite : parrainage de collégiens et lycéens de milieu défavorisé afin de les soutenir dans leur orientation scolaire</li>
+            <li>Fondateur et Responsable de la section "Astronautique" du Club Astro de l'ENAC</li></h4>
+        </ul>
 
-        <dt>Experience</dt>
-        <dd>
-            <h2><i>Nov 2015 - Auj :</i> The Mars Society, MDRS</h2>
-            <ul>
-                <li>Membre de l'équipe robotique d'un projet pour la Mars
-                    Desert Research Station dans l'Utah en 2017</p></li>
-            </ul>
-
-            <h2><i>Août 2014 :</i> Emploi saisonnier, Crédit Agricole, Vitry-sur-Seine</h2>
-            <ul>
-                <li> Accueil des clients en agence, mise à jour de la base de
-                    données des clients de l’agence</li>
-            </ul>
-
-            <h2><i>Août 2013 :</i> Emploi saisonnier, CNP Assurances - Comptabilité fournisseurs, Paris</h2>
-            <ul>
-                <li> Réactualisation de tâches administratives, prise de
-                    contact avec les fournisseurs pour le remboursement de prestations effectuées</li>
-            </ul>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Compétences informatiques</dt>
-        <dd>
-            <h2>Basiques</h2>
-            <p>Unix, MatLab, LaTeX</p>
-
-            <h2>Avancées</h2>
-            <p>Python, Langage SQL, Suite Office, Windows,
-                Linux, Microsoft Office, OpenVSP, HTML, CSS</p>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Langues</dt>
-        <dd>
-            <h2>Anglais : </h2>
-            <p>Niveau C1</p>
-
-            <h2>Allemand : </h2>
-            <p>Niveau B1</p>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Centres d'intérets</dt>
-        <dd>
-            <h2>Associations: </h2>
-            <ul>
-                <li>Pratique de l’Aïkido pendant 8 ans</p></li>
-                <li>Participation à Prépa Brevet ENAC : cours de soutien bénévoles à des collégiens pour la préparation du diplôme national du Brevet</p></li>
-                <li>Membre du club d’astronomie de l’ENAC</p></li>
-                <li>Participation aux Cordées de la Réussite : parrainage de collégiens et lycéens de milieu défavorisé afin de les soutenir dans leur orientation scolaire</p></li>
-                <li>Fondateur et Responsable de la section "Astronautique" du Club Astro de l'ENAC</p></li>
-            </ul>
-        <dd class="clear"></dd>
-    </dl>
-</div>
+<?php include("footer.php"); ?>

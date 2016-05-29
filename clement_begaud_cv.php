@@ -5,12 +5,10 @@
 <!-- CV Clement BEGAUD -->
 
 <div id="page-wrap">
-
-    <img src="images/clement_begaud.jpg" alt="Photo de Clément BEGAUD" id="pic" />
-
+    <div id="profil">
+        <img src="images/clement_begaud.jpg" alt="Photo de Clément BEGAUD" id="pic" />
+    </div>
     <div id="contact-info" class="vcard">
-
-        <!-- Microformats! -->
 
         <h1 class="fn">Clément BEGAUD</h1>
 
@@ -26,78 +24,77 @@
         </p>
     </div>
 
-    <div id="objective">
-        <p>
-            Etant actuellement en première année d’école d’ingénieur à l’ENAC et en vue de la formation dispensée je suis actuellement à la recherche d’un stage de connaissance de l’entreprise dans le secteur aéronautique.
-        </p>
-    </div>
-
-    <div class="clear"></div>
-
-    <dl>
-        <dd class="clear"></dd>
-
-        <dt>Formation</dt>
-        <dd>
-            <h2><i>2015 - Auj :</i> Ecole Nationale de l'Aviation Civile (ENAC)</h2>
-            <p>Ingénieur IENAC<br />
-                Toulouse, France</p>
-            <h2><i>2013 - 2015 :</i> CPGE scientifique MPSI-MP</h2>
-            <p>Lycée Clemenceau, NANTES, France</p>
-            <h2><i>2013 :</i> Baccalauréat général, série scientifique,
-                Mention Très Bien</h2>
-            <p>Option SVT, Spécialité Mathématiques, Lycée Vieljeux, La Rochelle, France</p>
-
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Expériences</dt>
-        <dd>
-            <h2><i>Nov 2015 - Auj :</i> Défi aérospatial étudiant</h2>
-            <ul>
-                <li><p>Membre de l'équipe Aerospace Challenge de l'ENAC (Thème : systèmes anti-collisiion).
-            </ul>
-            <h2><i>Nov 2015 - Auj :</i> Projet informatique laboratoire drone ENAC</h2>
-            <ul>
-                <li><p>Développement d'une interface pour la calibration des centrales inertielles pour micro-drone.</p></li>
-            </ul>
-
-            <h2><i>Sept 2015 - Auj :</i> Cours pour un collégien</h2>
-            <ul>
-                <li><p> Aide apporté à un élève de 3ème en mathématique et physique.</p></li>
-            </ul>
-
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Compétences </dt>
-        <dd>
-            <h2>Linguistiques</h2>
-            <p>Anglais courants.</p>
-
-            <h2>Connaissances informatiques</h2>
-            <p>OpenVSP, SolidWorks, Python, création site web, Windows, Linux, Bureautique.</p>
-        </dd>
-
-
-        <dd class="clear"></dd>
-
-        <dt>Centres d'intérêts</dt>
-        <dd>
-            <h2>Aéronautique et spatial</h2>
-            <ul>
-                <li><p>Conférences, meeting, livres, films</p></li>
-            </ul>
-            <h2>Sports</h2>
-            <ul>
-                <li><p>tennis de table, tennis, escalade, natation, hockey</p></li>
-            </ul>
-            <ul>
-                <h2>Autres</h2>
-                <li><p>Musique, piano, randonée, lecture</p></li>
-            </ul>
-        <dd class="clear"></dd>
-    </dl>
+    <div id="cv-title"
+    <h2>
+        Elève Ingénieur à l'ENAC
+    </h2>
 </div>
+
+<div id="objective">
+    <p>
+        Etant actuellement en première année d’école d’ingénieur à l’ENAC et en vue de la formation dispensée je suis actuellement à la recherche d’un stage de connaissance de l’entreprise dans le secteur aéronautique.
+    </p>
+</div>
+<br /><br /><br />
+
+    <div id="corps_cv" align="center"><h2>FORMATION</h2></div>
+        <h3>2015 - Auj : Ecole Nationale de l'Aviation Civile (ENAC)</h3>
+        <ul>
+            <li><h4>Ingénieur IENAC<br />
+                    Toulouse, France</h4></li>
+        </ul>
+        <h3>2013 - 2015 : CPGE scientifique MPSI-MP</h3>
+        <ul>
+            <li><h4>Lycée Clemenceau, NANTES, France</h4></li>
+        </ul>
+        <h3>2013 : Baccalauréat général, série scientifique,
+            Mention Très Bien</h3>
+        <ul>
+            <li><h4>Option SVT, Spécialité Mathématiques, Lycée Vieljeux, La Rochelle, France</h4></li>
+        </ul>
+        <br /><br /><br />
+
+
+    <div id="corps_cv" align="center"><h2>EXPERIENCE</h2></div>
+        <h3>Nov 2015 - Auj : Défi aérospatial étudiant</h3>
+        <ul>
+            <li><h4>Membre de l'équipe Aerospace Challenge de l'ENAC (Thème : systèmes anti-collisiion).</h4>
+        </ul>
+        <h3>Nov 2015 - Auj : Projet informatique laboratoire drone ENAC</h3>
+        <ul>
+            <li><h4>Développement d'une interface pour la calibration des centrales inertielles pour micro-drone.</h4></li>
+        </ul>
+
+        <h3>Sept 2015 - Auj : Cours pour un collégien</h3>
+        <ul>
+            <li><h4>Aide apporté à un élève de 3ème en mathématique et physique.</h4></li>
+        </ul>
+        <br /><br /><br />
+
+    <div id="corps_cv" align="center"><h2>COMPETENCES</h2></div>
+        <h3>Linguistiques</h3>
+        <ul>
+            <li><h4>Anglais courants.</h4></li>
+        </ul>
+        <h3>Connaissances informatiques</h3>
+        <ul>
+            <li><h4>OpenVSP, SolidWorks, Python, création site web, Windows, Linux, Bureautique.</h4></li>
+        </ul>
+        <br /><br /><br />
+
+    <div id="corps_cv" align="center"><h2>CENTRES D'INTERETS</h2></div>
+        <h3>Aéronautique et spatial</h3>
+        <ul>
+            <li><h4>Conférences, meeting, livres, films</h4></li>
+        </ul>
+        <h3>Sports</h3>
+        <ul>
+            <li><h4>Tennis de table, tennis, escalade, natation, hockey</h4></li>
+        </ul>
+        <h3>Autres</h3>
+        <ul>
+            <li><h4>Musique, piano, randonée, lecture</h4></li>
+        </ul>
+
+
+<?php include("footer.php"); ?>

@@ -3,16 +3,15 @@
 <?php include("entete.php"); ?>
 
 <!-- CV Guillaume THIRION -->
+
 <div id="page-wrap">
-
-    <img src="images/guillaume_thirion.jpg" alt="Photo de Guillaume THIRION" id="pic" />
-
+    <div id="profil">
+        <img src="images/guillaume_thirion.jpg" alt="Photo de Guillaume THIRION" id="pic" />
+    </div>
     <div id="contact-info" class="vcard">
 
-        <!-- Microformats! -->
-
         <h1 class="fn">Guillaume THIRION</h1>
-
+        
         <p>
             Né le 7 mars 1994 <br/>
             Chez ENAC <br/>
@@ -25,109 +24,96 @@
         </p>
     </div>
 
+    <div id="cv-title"
+    <h2>
+        Elève Ingénieur à l'ENAC
+    </h2>
+    </div>
+
     <div id="objective">
         <p>
             Elève Ingénieur à l'ENAC, l'Ecole Nationale de l'Aviation Civile, je me passionne depuis mon enfance pour l'aéronautique et l'aérospatiale.
         </p>
     </div>
+    <br /><br /><br />
 
-    <div class="clear"></div>
+    <div id="corps_cv" align="center"><h2>FORMATION</h2></div>
+        <h3>2015 - Auj : Ecole Nationale de l'Aviation Civile (ENAC)</h3>
+        <ul>
+            <li><h4>Ingénieur IENAC<br />
+                    Toulouse, France</h4></li>
+        </ul>
+        <h3>Février 2015 - Auj : EPFLx: EE585x Space Mission Design and Operations</h3>
+        <ul>
+            <li><h4>MOOC de l'École polytechnique fédérale de Lausanne via EdX sur les bases de l'astronautique
+                    (mécanique orbitale, propulsion, facteurs humains,...)</h4></li>
+        </ul>
+        <h3>2012 - 2015 : CPGE scientifique MPSI-PSI*</h3>
+        <ul>
+            <li><h4>Lycée Chateaubriand, Rennes, France</h4></li>
+        </ul>
+        <h3>2012 : Baccalauréat général, série scientifique,
+            Mention Très-Bien</h3>
+        <ul>
+            <li><h4>Option SVT, Spécialité Mathématiques, Lycée St-Joseph, Chateaubriant, France</h4></li>
+        </ul>
+        <br /><br /><br />
 
-    <dl>
-        <dd class="clear"></dd>
+    <div id="corps_cv" align="center"><h2>EXPERIENCE</h2></div>
+        <h3>Nov 2015 - Auj : The Mars Society, MDRS</h3>
+        <ul>
+            <li><h4>Fondateur et chef d'une équipe d'un projet pour la Mars
+                    Desert Research Station dans l'Utah en 2017</h4>
+        </ul>
+        <h3>Sept 2015 - Auj : Team Aerospace ENAC, Défi Aérospatial Etudiant</h3>
+        <ul>
+            <li><h4>Membre d'un projet en équipe sur le FMS d’un véhicule suborbital développé
+                    pour le tourisme spatial</h4></li>
+        </ul>
+        
+        <h3>Oct 2015 - Auj : Commission Communication, Airexpo</h3>
+        <ul>
+            <li><h4>Vice-Responsable Opérations en charge de la promotion du meeting</h4></li>
+        </ul>
+        <h3>Sept 2015 - Auj : "Apprends-moi l'Aéro", ENAC</h3>
+        <ul>
+            <li><h4>Enseignement du B.I.A. (Brevet d'Initiation Aéronautique) à
+                    des lycéens (Fonsorbes, Lycée Clémence Royer)</h4></li>
+        </ul>
+        <h3>Août 2013 : Assistant Designer à ShowCase Kitchens</h3>
+        <ul>
+            <li><h4>Rencontres avec des clients et design de cuisine Schüller (Brighton
+                    , Royaume-Unis)</h4></li>
+        </ul>
+        <br /><br /><br />
+    
+    <div id="corps_cv" align="center"><h2>COMPETENCES</h2></div>
+        <h3>Compétences informatiques</h3>
+        <ul>
+            <li><h4>Basiques : Unix</h4></li>
+            <li><h4>Avancées : Python, Langage SQL, LaTeX, Suite Office, Windows,
+                    Linux, Microsoft Office, Scilab-Xcos, SolidWorks, OpenVSP, MatLab</h4></li>
+        </ul>
+        <h3>Langues</h3>
+        <ul>
+            <li><h4>Anglais : Niveau C1</h4></li>
+            <li><h4>Allemand : Niveau B1</h4></li>
+        </ul>
+        <br /><br /><br />
+    
+    <div id="corps_cv" align="center"><h2>CENTRES D'INTERETS</h2></div>
+        <h3>Associations: </h3>
+        <ul>
+            <h4><li>Association Aéronautique et Aérospatiale Française (3AF)</li>
+            <li>The American Institut of Aeronautics and Astronautics (AIAA)</li>
+            <li>Association Planète Mars (APM)</li>
+            <li>Volontaire à l'Institut de Médecine et de Physiologie Spatiale (MEDES)</li>
+            <li>Fondateur et Responsable de la section "Astronautique" du Club Astro de l'ENAC</li></h4>
+        </ul>
+        <h3>Autres :</h3>
+        <ul>
+            <li><h4>Badminton, Plongée sous-marine (N2, RIFAP), Escalade, Alpinisme<br/>
+                Lecture, Histoire, En formation PPL</h4></li>
+        </ul>    
 
-        <dt>Formation</dt>
-        <dd>
-            <h2><i>2015 - Auj :</i> Ecole Nationale de l'Aviation Civile (ENAC)</h2>
-            <p>Ingénieur IENAC<br />
-                Toulouse, France</p>
-            <h2><i>Février 2015 - Auj :</i> EPFLx: EE585x Space Mission Design and Operations</h2>
-            <p>MOOC de l'École polytechnique fédérale de Lausanne via EdX sur les bases de l'astronautique
-                (mécanique orbitale, propulsion, facteurs humains,...)</p>
-            <h2><i>2012 - 2015 :</i> CPGE scientifique MPSI-PSI*</h2>
-            <p>Lycée Chateaubriand, Rennes, France</p>
-            <h2><i>2012 :</i> Baccalauréat général, série scientifique,
-                Mention Très-Bien</h2>
-            <p>Option SVT, Spécialité Mathématiques, Lycée St-Joseph, Chateaubriant, France</p>
-
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Experience</dt>
-        <dd>
-            <h2><i>Nov 2015 - Auj :</i> The Mars Society, MDRS</h2>
-            <ul>
-                <li>Fondateur et chef d'une équipe d'un projet pour la Mars
-                    Desert Research Station dans l'Utah en 2017</p></li>
-            </ul>
-
-            <h2><i>Sept 2015 - Auj :</i> Team Aerospace ENAC, Défi Aérospatial Etudiant</h2>
-            <ul>
-                <li> Membre d'un projet en équipe sur le FMS d’un véhicule suborbital développé
-                    pour le tourisme spatial</li>
-            </ul>
-
-            <h2><i>Oct 2015 - Auj :</i> Commission Communication, Airexpo</h2>
-            <ul>
-                <li>Vice-Responsable Opérations en charge de la promotion du meeting</p></li>
-            </ul>
-
-            <h2><i>Sept 2015 - Auj :</i> "Apprends-moi l'Aéro", ENAC</h2>
-            <ul>
-                <li> Enseignement du B.I.A. (Brevet d'Initiation Aéronautique) à
-                    des lycéens (Fonsorbes, Lycée Clémence Royer)</li>
-            </ul>
-
-            <h2><i>Août 2013 :</i> Assistant Designer à ShowCase Kitchens</h2>
-            <ul>
-                <li> Rencontres avec des clients et design de cuisine Schüller (Brighton
-                    , Royaume-Unis)</li>
-            </ul>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Compétences informatiques</dt>
-        <dd>
-            <h2>Basiques</h2>
-            <p>Unix</p>
-
-            <h2>Avancées</h2>
-            <p>Python, Langage SQL, LaTeX, Suite Office, Windows,
-                Linux, Microsoft Office, Scilab-Xcos, SolidWorks, OpenVSP, MatLab</p>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Langues</dt>
-        <dd>
-            <h2>Anglais : </h2>
-            <p>Niveau C1</p>
-
-            <h2>Allemand : </h2>
-            <p>Niveau B1</p>
-        </dd>
-
-        <dd class="clear"></dd>
-
-        <dt>Centres d'intérets</dt>
-        <dd>
-            <h2>Associations: </h2>
-            <ul>
-                <li>Association Aéronautique et Aérospatiale Française (3AF)</p></li>
-                <li>The American Institut of Aeronautics and Astronautics (AIAA)</p></li>
-                <li>Association Planète Mars (APM)</p></li>
-                <li>Volontaire à l'Institut de Médecine et de Physiologie Spatiale (MEDES)</p></li>
-                <li>Fondateur et Responsable de la section "Astronautique" du Club Astro de l'ENAC</p></li>
-            </ul>
-
-            <h2>Autres: </h2>
-            <ul>
-                <li>Badminton, Plongée sous-marine (N2, RIFAP), Escalade, Alpinisme<br/>
-                    Lecture, Histoire, En formation PPL</p></li>
-
-            </ul>
-        <dd class="clear"></dd>
-    </dl>
-</div>
+<?php include("footer.php"); ?>

@@ -345,7 +345,12 @@ input:-moz-placeholder,
     font-size: 20px;
     margin: 30px 10px 0;
 }
-
+#corps_cv h2
+{
+    font-weight: 600;
+    color: lightseagreen;
+    font-size: 23px;
+}
 /*---------------------------- ADMIN ------------------------------------*/
 
 #ajout_mode_type {
