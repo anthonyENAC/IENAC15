@@ -1,11 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 12, 2016 at 09:08 AM
--- Server version: 5.5.41-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.5
+-- Client :  localhost
+-- Généré le :  Dim 29 Mai 2016 à 23:57
+-- Version du serveur :  10.1.13-MariaDB
+-- Version de PHP :  5.6.20
+
+CREATE DATABASE IF NOT EXISTS IENAC15_GRIT;
+USE IENAC15_GRIT;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,25 +17,24 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `GRIT`
+-- Base de données :  `IENAC15_GRIT`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Administrateur`
+-- Structure de la table `Administrateur`
 --
 
-CREATE TABLE IF NOT EXISTS `Administrateur` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+CREATE TABLE `Administrateur` (
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Administrateur`
+-- Contenu de la table `Administrateur`
 --
 
 INSERT INTO `Administrateur` (`id_user`) VALUES
@@ -41,17 +43,28 @@ INSERT INTO `Administrateur` (`id_user`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Etat`
+-- Structure de la table `Commentaires`
 --
 
-CREATE TABLE IF NOT EXISTS `Etat` (
-  `id_etat` int(11) NOT NULL AUTO_INCREMENT,
-  `etat` char(20) DEFAULT NULL,
-  PRIMARY KEY (`id_etat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+CREATE TABLE `Commentaires` (
+  `Nom_Prenom` varchar(20) NOT NULL,
+  `E_mail` varchar(30) NOT NULL,
+  `Commentaire` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `Etat`
+-- Structure de la table `Etat`
+--
+
+CREATE TABLE `Etat` (
+  `id_etat` int(11) NOT NULL,
+  `etat` char(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `Etat`
 --
 
 INSERT INTO `Etat` (`id_etat`, `etat`) VALUES
@@ -62,20 +75,17 @@ INSERT INTO `Etat` (`id_etat`, `etat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Mode_Transport`
+-- Structure de la table `Mode_Transport`
 --
 
-CREATE TABLE IF NOT EXISTS `Mode_Transport` (
-  `id_transport` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Mode_Transport` (
+  `id_transport` int(11) NOT NULL,
   `id_etat` int(11) DEFAULT NULL,
-  `id_type` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_transport`),
-  KEY `id_type` (`id_type`),
-  KEY `id_etat` (`id_etat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=112 ;
+  `id_type` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Mode_Transport`
+-- Contenu de la table `Mode_Transport`
 --
 
 INSERT INTO `Mode_Transport` (`id_transport`, `id_etat`, `id_type`) VALUES
@@ -194,17 +204,16 @@ INSERT INTO `Mode_Transport` (`id_transport`, `id_etat`, `id_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Mode_Type`
+-- Structure de la table `Mode_Type`
 --
 
-CREATE TABLE IF NOT EXISTS `Mode_Type` (
-  `id_type` int(11) NOT NULL AUTO_INCREMENT,
-  `descr_type` char(20) DEFAULT NULL,
-  PRIMARY KEY (`id_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+CREATE TABLE `Mode_Type` (
+  `id_type` int(11) NOT NULL,
+  `descr_type` char(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Mode_Type`
+-- Contenu de la table `Mode_Type`
 --
 
 INSERT INTO `Mode_Type` (`id_type`, `descr_type`) VALUES
@@ -220,19 +229,18 @@ INSERT INTO `Mode_Type` (`id_type`, `descr_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Station`
+-- Structure de la table `Station`
 --
 
-CREATE TABLE IF NOT EXISTS `Station` (
-  `id_station` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Station` (
+  `id_station` int(11) NOT NULL,
   `nom_station` char(50) DEFAULT NULL,
   `lat` char(15) DEFAULT NULL,
-  `lng` char(15) DEFAULT NULL,
-  PRIMARY KEY (`id_station`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+  `lng` char(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Station`
+-- Contenu de la table `Station`
 --
 
 INSERT INTO `Station` (`id_station`, `nom_station`, `lat`, `lng`) VALUES
@@ -266,40 +274,36 @@ INSERT INTO `Station` (`id_station`, `nom_station`, `lat`, `lng`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Trajet_Utilisateur`
+-- Structure de la table `Trajet_Utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `Trajet_Utilisateur` (
-  `id_trajet` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Trajet_Utilisateur` (
+  `id_trajet` int(11) NOT NULL,
   `liste_troncon` char(255) DEFAULT NULL,
-  `mode_transport` char(20) DEFAULT NULL,
-  PRIMARY KEY (`id_trajet`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `mode_transport` char(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Transport_Troncon`
+-- Structure de la table `Transport_Troncon`
 --
 
-CREATE TABLE IF NOT EXISTS `Transport_Troncon` (
-  `num` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Transport_Troncon` (
+  `num` int(11) NOT NULL,
   `duree` int(11) DEFAULT NULL,
   `heure_passage` int(11) DEFAULT NULL,
   `prix` float DEFAULT NULL,
   `id_transport` int(11) DEFAULT NULL,
-  `id_troncon` int(11) DEFAULT NULL,
-  PRIMARY KEY (`num`),
-  KEY `Transport_Troncon_ibfk_1` (`id_transport`),
-  KEY `Transport_Troncon_ibfk_2` (`id_troncon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=112 ;
+  `id_troncon` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Transport_Troncon`
+-- Contenu de la table `Transport_Troncon`
 --
 
 INSERT INTO `Transport_Troncon` (`num`, `duree`, `heure_passage`, `prix`, `id_transport`, `id_troncon`) VALUES
-(1, 22500, NULL, 90, 38, 1),
+(1, 22500, 21600, 90, 38, 1),
 (2, 300, 22020, 1.6, 5, 2),
 (3, 300, 27540, 1.6, 6, 2),
 (4, 300, 33300, 1.6, 7, 2),
@@ -322,7 +326,6 @@ INSERT INTO `Transport_Troncon` (`num`, `duree`, `heure_passage`, `prix`, `id_tr
 (21, 780, 55800, NULL, 48, 4),
 (22, 120, 25200, NULL, 49, 6),
 (23, 120, 28800, NULL, 50, 6),
-(24, 120, 28800, NULL, 51, 6),
 (25, 120, 32400, NULL, 52, 6),
 (26, 120, 57600, NULL, 53, 6),
 (27, 600, NULL, NULL, 103, 7),
@@ -335,12 +338,11 @@ INSERT INTO `Transport_Troncon` (`num`, `duree`, `heure_passage`, `prix`, `id_tr
 (34, 33180, 36780, 25, 19, 8),
 (35, 33480, 72720, 25, 20, 8),
 (36, 840, NULL, 24, 39, 9),
-(37, 720, NULL, NULL, 104, 10),
-(38, 900, 29040, 2, 60, 11),
-(39, 900, 32700, 2, 61, 11),
-(40, 900, 39960, 2, 62, 11),
-(41, 900, 43560, 2, 63, 11),
-(42, 900, 36360, 2, 64, 11),
+(38, 900, 29040, 2, 60, 36),
+(39, 900, 32700, 2, 61, 36),
+(40, 900, 39960, 2, 62, 36),
+(41, 900, 43560, 2, 63, 36),
+(42, 900, 36360, 2, 64, 36),
 (43, 540, NULL, NULL, 105, 12),
 (44, 900, NULL, NULL, 106, 13),
 (45, 300, NULL, NULL, 107, 14),
@@ -414,110 +416,225 @@ INSERT INTO `Transport_Troncon` (`num`, `duree`, `heure_passage`, `prix`, `id_tr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Troncon`
+-- Structure de la table `Troncon`
 --
 
-CREATE TABLE IF NOT EXISTS `Troncon` (
-  `id_troncon` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Troncon` (
+  `id_troncon` int(11) NOT NULL,
   `nom_troncon` char(150) DEFAULT NULL,
   `station_dep` int(11) DEFAULT NULL,
-  `station_arr` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_troncon`),
-  KEY `Troncon_ibfk_1` (`station_dep`),
-  KEY `Troncon_ibfk_2` (`station_arr`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+  `station_arr` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Troncon`
+-- Contenu de la table `Troncon`
 --
 
 INSERT INTO `Troncon` (`id_troncon`, `nom_troncon`, `station_dep`, `station_arr`) VALUES
-(1, 'ENAC - Tour Ariane (Voiture)', 1, 2),
-(2, 'ENAC - Fac de Pharma (Bus)', 1, 3),
-(3, 'ENAC - Ramonville (Bus)', 1, 4),
-(4, 'Fac de Pharma - Jean Jaurès (Metro)', 3, 5),
-(5, 'Ramonville - Jean Jaurès (Metro)', 4, 5),
-(6, 'Jean-Jaurès - Marengo SNCF (Metro)', 5, 6),
-(7, 'Marengo SNCF - Gare Routière Pierre Sémard (Pieds)', 5, 7),
+(1, 'ENAC - Tour Ariane', 1, 2),
+(2, 'ENAC - Fac de Pharma', 1, 3),
+(3, 'ENAC - Ramonville', 1, 4),
+(4, 'Fac de Pharma - Jean Jaurès', 3, 5),
+(5, 'Ramonville - Jean Jaurès', 4, 5),
+(6, 'Jean-Jaurès - Marengo SNCF', 5, 6),
+(7, 'Marengo SNCF - Gare Routière Pierre Sémard', 6, 7),
 (8, 'Gare Routière Pierre Sémard - Gare routière Paris-Bercy', 7, 8),
-(9, 'Gare Routière Paris-Bercy - Tour Ariane (Voiture)', 8, 2),
-(10, 'Gare Routière Paris-Bercy - Paris Lyon RER (Pieds)', 8, 9),
-(11, 'Paris Lyon RER - Station La Défense Grande Arche (RER A)', 9, 10),
+(9, 'Gare Routière Paris-Bercy - Tour Ariane', 8, 2),
 (12, 'Station Grande Arche de la Défense - Tour Ariane', 10, 2),
-(13, 'Gare Routière Paris-Bercy - Gare de Lyon (Pieds)', 8, 11),
-(14, 'Marengo SNCF - Gare Matabiau (Pieds)', 6, 14),
+(13, 'Gare Routière Paris-Bercy - Gare de Lyon', 8, 11),
+(14, 'Marengo SNCF - Gare Matabiau', 6, 14),
 (15, 'Gare Matabiau - Gare d''Austerlitz', 14, 15),
-(16, 'Gare d''Austerlitz - Tour Ariane (Voiture)', 15, 2),
-(17, 'Gare d''Austerlitz - Gare de Lyon (Pieds)', 15, 11),
+(16, 'Gare d''Austerlitz - Tour Ariane', 15, 2),
+(17, 'Gare d''Austerlitz - Gare de Lyon', 15, 11),
 (18, 'Gare Matabiau - Gare Montparnasse', 14, 16),
-(19, 'Gare Montparnasse - Tour Ariane (Voiture)', 16, 2),
-(20, 'Gare Montparnasse - Station Montparnasse-Bienvenue (pieds)', 16, 17),
-(21, 'Station Montparnasse-Bienvenue - Place Charles de Gaulle (Metro)', 17, 18),
-(22, 'Place Charles de Gaulle - Station La Défense Grande Arche (RER A)', 18, 10),
-(23, 'Gare Montparnasse - Station Gaité (Pieds)', 16, 19),
-(24, 'Station Gaité - Champs Elysée Clémenceau (Métro)', 19, 20),
-(25, 'Champs Elysée Clémenceau - La Défense Grande Arche (Metro)', 20, 10),
-(26, 'Fac de Pharma - Palais de Justice (Metro)', 3, 21),
-(27, 'Ramonville - Palais de Justice (Metro)', 4, 21),
-(28, 'Palais de Justice - Aéroport de Blagnac (Tram)', 21, 22),
+(19, 'Gare Montparnasse - Tour Ariane', 16, 2),
+(20, 'Gare Montparnasse - Station Montparnasse-Bienvenue', 16, 17),
+(21, 'Station Montparnasse-Bienvenue - Place Charles de Gaulle', 17, 18),
+(22, 'Place Charles de Gaulle - Station La Défense Grande Arche', 18, 10),
+(23, 'Gare Montparnasse - Station Gaité', 16, 19),
+(24, 'Station Gaité - Champs Elysée Clémenceau', 19, 20),
+(25, 'Champs Elysée Clémenceau - La Défense Grande Arche', 20, 10),
+(26, 'Fac de Pharma - Palais de Justice', 3, 21),
+(27, 'Ramonville - Palais de Justice', 4, 21),
+(28, 'Palais de Justice - Aéroport de Blagnac', 21, 22),
 (29, 'Toulouse Blagnac - Orly', 22, 26),
-(30, 'Aéroport Orly - Ariane (Voiture)', 26, 2),
-(31, 'Aéroport Orly - Orly Sud (Pieds)', 26, 23),
-(32, 'Orly Sud - Place Charles de Gaulle (Bus)', 23, 18),
-(33, 'Orly Sud - Antony RER (RER)', 23, 24),
-(34, 'Antony RER - Paris Chatelet/Les Halles (RER)', 24, 25),
-(35, 'Paris Chatelet/Les Halles - La Défense Grande Arche (RER)', 25, 10);
+(30, 'Aéroport Orly - Ariane', 26, 2),
+(31, 'Aéroport Orly - Orly Sud', 26, 23),
+(32, 'Orly Sud - Place Charles de Gaulle', 23, 18),
+(33, 'Orly Sud - Antony RER', 23, 24),
+(34, 'Antony RER - Paris Chatelet/Les Halles', 24, 25),
+(35, 'Paris Chatelet/Les Halles - La Défense Grande Arche', 25, 10),
+(36, 'Gare de Lyon - La Défense Grande Arche', 11, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Utilisateur`
+-- Structure de la table `Utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `Utilisateur` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Utilisateur` (
+  `id_user` int(11) NOT NULL,
   `nom` char(20) DEFAULT NULL,
   `prenom` char(20) DEFAULT NULL,
   `date_naiss` date DEFAULT NULL,
   `email` char(20) DEFAULT NULL,
-  `mdp` char(100) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `mdp` char(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Utilisateur`
+-- Contenu de la table `Utilisateur`
 --
 
 INSERT INTO `Utilisateur` (`id_user`, `nom`, `prenom`, `date_naiss`, `email`, `mdp`) VALUES
 (1, 'Tyrion', 'Gyom', '1994-03-07', NULL, '007'),
-(2, 'Bego', 'Grincheux', '1901-01-01', NULL, '666');
+(2, 'Bego', 'Grincheux', '1901-01-01', NULL, '666'),
+(3, 'onizuka', 'eikichi', '0000-00-00', 'bob@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921');
 
 --
--- Constraints for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Constraints for table `Administrateur`
+-- Index pour la table `Administrateur`
+--
+ALTER TABLE `Administrateur`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- Index pour la table `Commentaires`
+--
+ALTER TABLE `Commentaires`
+  ADD PRIMARY KEY (`E_mail`);
+
+--
+-- Index pour la table `Etat`
+--
+ALTER TABLE `Etat`
+  ADD PRIMARY KEY (`id_etat`);
+
+--
+-- Index pour la table `Mode_Transport`
+--
+ALTER TABLE `Mode_Transport`
+  ADD PRIMARY KEY (`id_transport`),
+  ADD KEY `id_type` (`id_type`),
+  ADD KEY `id_etat` (`id_etat`);
+
+--
+-- Index pour la table `Mode_Type`
+--
+ALTER TABLE `Mode_Type`
+  ADD PRIMARY KEY (`id_type`);
+
+--
+-- Index pour la table `Station`
+--
+ALTER TABLE `Station`
+  ADD PRIMARY KEY (`id_station`);
+
+--
+-- Index pour la table `Trajet_Utilisateur`
+--
+ALTER TABLE `Trajet_Utilisateur`
+  ADD PRIMARY KEY (`id_trajet`);
+
+--
+-- Index pour la table `Transport_Troncon`
+--
+ALTER TABLE `Transport_Troncon`
+  ADD PRIMARY KEY (`num`),
+  ADD KEY `Transport_Troncon_ibfk_1` (`id_transport`),
+  ADD KEY `Transport_Troncon_ibfk_2` (`id_troncon`);
+
+--
+-- Index pour la table `Troncon`
+--
+ALTER TABLE `Troncon`
+  ADD PRIMARY KEY (`id_troncon`),
+  ADD KEY `Troncon_ibfk_1` (`station_dep`),
+  ADD KEY `Troncon_ibfk_2` (`station_arr`);
+
+--
+-- Index pour la table `Utilisateur`
+--
+ALTER TABLE `Utilisateur`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Administrateur`
+--
+ALTER TABLE `Administrateur`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `Etat`
+--
+ALTER TABLE `Etat`
+  MODIFY `id_etat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `Mode_Transport`
+--
+ALTER TABLE `Mode_Transport`
+  MODIFY `id_transport` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+--
+-- AUTO_INCREMENT pour la table `Mode_Type`
+--
+ALTER TABLE `Mode_Type`
+  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `Station`
+--
+ALTER TABLE `Station`
+  MODIFY `id_station` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT pour la table `Trajet_Utilisateur`
+--
+ALTER TABLE `Trajet_Utilisateur`
+  MODIFY `id_trajet` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `Transport_Troncon`
+--
+ALTER TABLE `Transport_Troncon`
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+--
+-- AUTO_INCREMENT pour la table `Troncon`
+--
+ALTER TABLE `Troncon`
+  MODIFY `id_troncon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT pour la table `Utilisateur`
+--
+ALTER TABLE `Utilisateur`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `Administrateur`
 --
 ALTER TABLE `Administrateur`
   ADD CONSTRAINT `Administrateur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `Utilisateur` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Mode_Transport`
+-- Contraintes pour la table `Mode_Transport`
 --
 ALTER TABLE `Mode_Transport`
   ADD CONSTRAINT `Mode_Transport_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `Mode_Type` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Mode_Transport_ibfk_2` FOREIGN KEY (`id_etat`) REFERENCES `Etat` (`id_etat`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Transport_Troncon`
+-- Contraintes pour la table `Transport_Troncon`
 --
 ALTER TABLE `Transport_Troncon`
   ADD CONSTRAINT `Transport_Troncon_ibfk_1` FOREIGN KEY (`id_transport`) REFERENCES `Mode_Transport` (`id_transport`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Transport_Troncon_ibfk_2` FOREIGN KEY (`id_troncon`) REFERENCES `Troncon` (`id_troncon`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Troncon`
+-- Contraintes pour la table `Troncon`
 --
 ALTER TABLE `Troncon`
   ADD CONSTRAINT `Troncon_ibfk_1` FOREIGN KEY (`station_dep`) REFERENCES `Station` (`id_station`) ON DELETE CASCADE ON UPDATE CASCADE,

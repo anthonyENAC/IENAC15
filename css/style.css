@@ -126,6 +126,12 @@ h3 {
     margin: 0;
     text-transform: none;
 }
+#bob {
+    font-size: 20px;
+    margin: 0;
+    text-transform: none;
+    color:floralwhite;
+}
 p {
     color: #9b8d84;
     font: 12px/24px Arial, Helvetica, sans-serif;
@@ -229,6 +235,68 @@ section {
     color: #424380;
     text-transform: uppercase;
 }
+
+#test1{
+    background-color:red;
+}
+#test2{
+    background-color:red;
+}
+#test3{
+    background-color:red;
+}
+
+#test10{
+    background-color:darkgreen;
+}
+#test13{
+    background-color:green;
+}
+#test14{
+    background-color:forestgreen;
+}
+#test17{
+    background-color:limegreen;
+}
+#test20{
+    background-color:lawngreen;
+}
+#test18{
+    background-color:yellowgreen;
+}
+#test23{
+    background-color:greenyellow;
+}
+#test26
+{
+    background-color:yellow;
+}
+#test31{
+    background-color:orange;
+}
+#test33{
+    background-color:goldenrod;
+}
+#test27{
+    background-color:gold;
+}
+
+#mieux{
+    font-size:1em;
+    font-weight:700;
+    color:deeppink;
+}
+#mieux2{
+    font-size:1em;
+    font-weight:700;
+    color:darkcyan;
+}
+
+#no_solution{
+    font-size:1em;
+    font-weight:700;
+    color:orangered;
+}
 /*------------------------------ Commentaire ------------------------*/
 #contacter
 {
@@ -272,6 +340,7 @@ input:-moz-placeholder,
 {
     color: #555 !important;
 }
+#message{height:250px;}
 /*-------------------------------tableau-----------------------------*/
 #tableau2{margin-top:50px;}
 /*------------------------------ FOOTER ------------------------------*/
@@ -279,15 +348,14 @@ input:-moz-placeholder,
     background: url(../images/bg-footer.png) repeat left top;
     display: inline-block;
     width: 100%;
-    padding: 20px 0;
-    margin: 0 0;
-    bottom:0px;
+    padding: 30px 0;
 }
 #footer li
 {
     display: inline-block;
 }
 #footer p {
+    text-align: center;
     color: #2f2203;
     font: 12px/24px Arial, Helvetica, sans-serif;
     margin: 0;
@@ -350,4 +418,45 @@ input:-moz-placeholder,
     font-weight: 600;
     color: lightseagreen;
     font-size: 23px;
+}
+
+/*-------------------------Pop-up-----------------------*/
+
+#fade { /*--Masque opaque noir de fond--*/
+    display: none; /*--masqué par défaut--*/
+    background: #000;
+    position: fixed; left: 0; top: 0;
+    width: 100%; height: 100%;
+    opacity: .80;
+    z-index: 9999;
+}
+.popup_block{
+    display: none; /*--masqué par défaut--*/
+    background: #fff;
+    padding: 20px;
+    border: 20px solid #ddd;
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: 99999;
+    /*--Les différentes définitions de Box Shadow en CSS3--*/
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;
+    /*--Coins arrondis en CSS3--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+img.btn_close {
+    float: right;
+    margin: -55px -55px 0 0;
+}
+/*--Gérer la position fixed pour IE6--*/
+*html #fade {
+    position: absolute;
+}
+*html .popup_block {
+    position: absolute;
 }

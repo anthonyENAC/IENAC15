@@ -4,7 +4,7 @@ if(!isset($_SESSION))
     session_start();
 }
 
-$mysqli = new mysqli("localhost", "root", "", "GRIT");
+$mysqli = new mysqli("localhost", "root", "", "IENAC15_GRIT");
 if ($mysqli->connect_errno) {
     printf("Échec de la connexion : %s\n", $mysqli->connect_error);
     exit();
@@ -107,7 +107,7 @@ if ($option4) {
     {
         try
         {
-            $bdd = new PDO('mysql:host=localhost;dbname=GRIT;charset=utf8', 'root', '');
+            $bdd = new PDO('mysql:host=localhost;dbname=IENAC15_GRIT;charset=utf8', 'root', '');
         }
         catch (Exception $e)
         {

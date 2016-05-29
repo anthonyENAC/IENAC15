@@ -11,7 +11,7 @@ if(!isset($_SESSION))
     session_start();
 }
 
-$bdd=new PDO('mysql:host=localhost;dbname=GRIT', 'root', '');
+$bdd=new PDO('mysql:host=localhost;dbname=IENAC15_GRIT', 'root', '');
 
 
 if(isset($_POST["formconnexion"]))
