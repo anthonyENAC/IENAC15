@@ -145,7 +145,7 @@ if(isset($_GET['id_user']) AND $_GET['id_user'] > 0)
 </div>
 
 <?php
-}
+} 
 else {
     echo "<h1>Bienvenue sur le site de la GRIT</h1><br />";
     header("Location : accueil.php");

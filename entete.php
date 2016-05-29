@@ -96,5 +96,5 @@ if(!isset($_SESSION))
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> 
 

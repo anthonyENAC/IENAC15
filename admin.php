@@ -61,7 +61,7 @@ catch (Exception $e)
             <input type="submit" value="Ajouter" />
         </form>
 
-
+ 
         <form id="supp_mode_type" method="post" action="submit.php">
             </br>Supprimer un type de mode de transport :</br>
             <select name="supp_type">
