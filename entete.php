@@ -42,7 +42,7 @@ if(!isset($_SESSION))
                     }
                     else
                     {
-                        echo "accueil.php";
+                        echo "index.php";
                     }
                     ?>><img src="images/logo.png" alt="LOGO" height="86" width="170" /></a>
                 </div>
@@ -57,7 +57,7 @@ if(!isset($_SESSION))
                         }
                         else
                         {
-                            echo "<a href='accueil.php'><p>Accueil</p></a>";
+                            echo "<a href='index.php'><p>Accueil</p></a>";
                         }
                         ?>
                     </li>
@@ -78,7 +78,7 @@ if(!isset($_SESSION))
                         }
                         else
                         {
-                            echo "<a href='accueil.php'><p>Contact</p></a>";
+                            echo "<a href='index.php'><p>Contact</p></a>";
                         }
                         ?>
                     </li>
@@ -86,7 +86,7 @@ if(!isset($_SESSION))
                         <?php
                             if(isset($_SESSION["id_user"]))
                             {
-                                echo "<a href='deconnexion.php'><p>Deconnexion</p></a>";
+                                echo "<a href='deconnexion.php'><p>Déconnexion</p></a>";
                             }
                             else
                             {
